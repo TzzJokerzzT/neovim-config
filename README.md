@@ -12,7 +12,7 @@ git clone https://github.com/TzzJokerzzT/neovim-config ~/.config/nvim
 
 ## Plugins List
 
-1. Nightworlf - ColorScheme with my own style
+1. [Nightworlf](https://github.com/ricardoraposo/nightwolf.nvim?tab=readme-ov-file) - ColorScheme with my own style
 2. [Lualine](https://github.com/nvim-lualine/lualine.nvim?tab=readme-ov-file)
 3. [Oil](https://github.com/stevearc/oil.nvim)
 4. [Dashboard](https://github.com/folke/snacks.nvim/blob/main/docs/dashboard.md) - for this plugins you must have [Snacks](https://github.com/folke/snacks.nvim)
