@@ -34,3 +34,17 @@ map("n", "<leader>mh", ":Huefy<CR>", opts)
 
 --Oil keymaps
 vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
+
+-- Delete all buffers but the current one
+vim.keymap.set(
+  "n",
+  "<leader>bq",
+  '<Esc>:%bdelete|edit #|normal`"<Return>',
+  { desc = "Delete other buffers but the current one" }
+)
+
+-- Map Ctrl+b in insert mode to delete to the end of the word without leaving insert mode
+vim.keymap.set("i", "<C-b>", "<C-o>de")
+
+-- Map Ctrl+d in insert mode to delete all the row without leaving insert mode
+vim.api.nvim_set_keymap("i", "<C-d>", "<C-o>dd", { noremap = true, silent = true })
