@@ -35,7 +35,7 @@ git clone https://github.com/TzzJokerzzT/neovim-config ~/.config/nvim
 ## NOTES
 
 - [Snacks](https://github.com/folke/snacks.nvim) - I use this plugin for my dashboard, but you can use this plugin for your dashboard.
-- If you install Lualine the Wakatime section won't work, because you need install [Wakatime CLI](https://github.com/wakatime/vim-wakatime-cli), after that the Wakatime section will work again.
+- If you install Lualine the Wakatime section won't work, because you need install [Wakatime CLI](https://github.com/wakatime/wakatime-cli), after that the Wakatime section will work again.
 - The Bufferline is disabled by default, if you want to use the Bufferline you need change the config:
 
 ```
