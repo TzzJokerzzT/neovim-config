@@ -24,13 +24,13 @@ git clone https://github.com/TzzJokerzzT/neovim-config ~/.config/nvim
 10. [Wakatime](https://github.com/wakatime/vim-wakatime)
 11. [Lualine](https://github.com/nvim-lualine/lualine.nvim)
 12. [Bufferline](https://github.com/akinsho/bufferline.nvim)
-13. [Incline](https://github.com/nvim-lualine/incline.nvim)
+13. [Incline](https://github.com/b0o/incline.nvim)
 14. [Noice](https://github.com/folke/noice.nvim)
-15. [Rip Substitute](https://github.com/sunaku/vim-rip-substitute)
-16. [Trouble](https://github.com/stevearc/trouble.nvim)
-17. [Avante](https://github.com/stevearc/avante.nvim)
-18. [DocsView](https://github.com/stevearc/docs-view.nvim)
-19. [Obsidian](https://github.com/stevearc/obsidian.nvim)
+15. [Rip Substitute](https://github.com/chrisgrieser/vim-rip-substitute)
+16. [Trouble](https://github.com/folke/trouble.nvim)
+17. [Avante](https://github.com/yetone/avante.nvim)
+18. [DocsView](https://github.com/amrbashir/docs-view.nvim)
+19. [Obsidian](https://github.com/epwalsh/obsidian.nvim)
 
 ## NOTES
 
