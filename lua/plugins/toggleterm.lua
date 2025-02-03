@@ -6,7 +6,7 @@ return {
       require("toggleterm").setup({
         -- Configuración básica
         size = 20, -- Tamaño del terminal (puede ser fijo o dinámico según orientación)
-        open_mapping = [[<c-t>]], -- Atajo para abrir/cerrar el terminal
+        open_mapping = [[<C-e>]], -- Atajo para abrir/cerrar el terminal
         hide_numbers = true, -- Ocultar números de línea en el terminal
         shade_filetypes = {}, -- Tipos de archivo a sombrear (vacío = sin sombra)
         shade_terminals = true, -- Habilitar sombreado para terminales

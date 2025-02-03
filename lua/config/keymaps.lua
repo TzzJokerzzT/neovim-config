@@ -17,7 +17,7 @@ function SaveFile()
   end)
 
   if success then
-    vim.notify(filename .. " Saved!") -- Show only the custom message if successful
+    vim.notify(filename .. " Saved and ready for a fight󰞇") -- Show only the custom message if successful
   else
     vim.notify("Error: " .. err, vim.log.levels.ERROR) -- Show the error message if it fails
   end
@@ -48,3 +48,10 @@ vim.keymap.set("i", "<C-b>", "<C-o>de")
 
 -- Map Ctrl+d in insert mode to delete all the row without leaving insert mode
 vim.api.nvim_set_keymap("i", "<C-d>", "<C-o>dd", { noremap = true, silent = true })
+
+-- Map Ctrl+v in insert mode to paste without leaving insert mode
+vim.api.nvim_set_keymap("i", "<C-v>", '<C-o>"+p', { noremap = true, silent = true })
+
+-- Move line up or down on insert mode
+vim.keymap.set("i", "<A-j>", "<Esc>:m .+1<CR>==gi", { noremap = true, silent = true })
+vim.keymap.set("i", "<A-k>", "<Esc>:m .-2<CR>==gi", { noremap = true, silent = true })
