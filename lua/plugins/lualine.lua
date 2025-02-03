@@ -30,46 +30,6 @@
 --   },
 -- }
 
--- -- ~/.config/nvim/lua/plugins/lualine.lua
--- return {
---   {
---     "nvim-lualine/lualine.nvim",
---     dependencies = { "wakatime/vim-wakatime" }, -- Asegura que Wakatime esté cargado
---     config = function()
---       -- Función para obtener el tiempo de Wakatime "hoy"
---       local function wakatime_status()
---         -- Ejecuta el comando wakatime y captura la salida
---         local handle = io.popen("wakatime --today 2>/dev/null")
---         if not handle then
---           return "0m"
---         end
---         local result = handle:read("*a")
---         handle:close()
---
---         -- Procesa la salida (ej: "5 hrs 30 mins" → "5h30m")
---         if result and result ~= "" then
---           result = result:gsub("\n", "") -- Elimina saltos de línea
---           result = result:gsub("hours?", "h") -- Acorta "hours" a "h"
---           result = result:gsub("minutes?", "m") -- Acorta "minutes" a "m"
---           return result
---         else
---           return "0m"
---         end
---       end
---
---       -- Configuración de Lualine
---       require("lualine").setup({
---         sections = {
---           lualine_x = {
---             { wakatime_status, icon = "⏱" }, -- Componente personalizado
---             "filetype",
---           },
---         },
---       })
---     end,
---   },
--- }
-
 local timer = vim.loop.new_timer()
 local cached_time = "0m"
 
