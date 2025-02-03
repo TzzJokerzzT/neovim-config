@@ -30,6 +30,7 @@ git clone https://github.com/TzzJokerzzT/neovim-config ~/.config/nvim
 16. [Trouble](https://github.com/stevearc/trouble.nvim)
 17. [Avante](https://github.com/stevearc/avante.nvim)
 18. [DocsView](https://github.com/stevearc/docs-view.nvim)
+19. [Obsidian](https://github.com/stevearc/obsidian.nvim)
 
 ## NOTES
 
