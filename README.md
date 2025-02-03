@@ -21,3 +21,34 @@ git clone https://github.com/TzzJokerzzT/neovim-config ~/.config/nvim
 7. [Minty](https://github.com/nvzone/minty)
 8. [ToggleTerm](https://github.com/akinsho/toggleterm.nvim)
 9. [Volt](https://github.com/FredrikAleksander/volt-nvim)
+10. [Wakatime](https://github.com/wakatime/vim-wakatime)
+11. [Lualine](https://github.com/nvim-lualine/lualine.nvim)
+12. [Bufferline](https://github.com/akinsho/bufferline.nvim)
+13. [Incline](https://github.com/nvim-lualine/incline.nvim)
+14. [Noice](https://github.com/folke/noice.nvim)
+15. [Rip Substitute](https://github.com/sunaku/vim-rip-substitute)
+16. [Trouble](https://github.com/stevearc/trouble.nvim)
+17. [Avante](https://github.com/stevearc/avante.nvim)
+18. [DocsView](https://github.com/stevearc/docs-view.nvim)
+
+## > [!NOTE]
+
+- [Snacks](https://github.com/folke/snacks.nvim) - I use this plugin for my dashboard, but you can use this plugin for your dashboard.
+- If you install Lualine the Wakatime section won't work, because you need install [Wakatime CLI](https://github.com/wakatime/vim-wakatime-cli), after that the Wakatime section will work again.
+- The Bufferline is disabled by default, if you want to use the Bufferline you need change the config:
+
+```
+return {
+  { "akinsho/bufferline.nvim", enabled = false },
+}
+
+to
+
+return {
+  { "akinsho/bufferline.nvim", enabled = true },
+}
+```
+
+- Lualine also have my personal configuration, if you want to use it you need change the config.
+- Noice also have my personal configuration, if you want to use it you need change the config.
+- Avante have for default the deepseek AI and autocomplete and suggestion disabled.
