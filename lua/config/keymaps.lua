@@ -70,3 +70,16 @@ vim.keymap.set("n", "<leader>ol", "<cmd>ObsidianLinks<CR>", { desc = "Show Obsid
 vim.keymap.set("n", "<leader>on", "<cmd>ObsidianNew<CR>", { desc = "Create New Note" })
 vim.keymap.set("n", "<leader>os", "<cmd>ObsidianSearch<CR>", { desc = "Search Obsidian" })
 vim.keymap.set("n", "<leader>oq", "<cmd>ObsidianQuickSwitch<CR>", { desc = "Quick Switch" })
+
+map("v", "<leader>'", "S'", { desc = "Rodear con comillas simples" })
+map("v", '<leader>"', 'S"', { desc = "Rodear con comillas dobles" })
+map("v", "<leader>(", "S(", { desc = "Rodear con paréntesis" })
+map("v", "<leader>{", "S{", { desc = "Rodear con llaves" })
+map("v", "<leader>[", "S[", { desc = "Rodear con corchetes" })
+map("v", "<leader><", "S<", { desc = "Rodear con ángulos" })
+
+-- Opcional: Eliminar envolturas fácilmente
+map("n", "<leader>ds", "ds", { desc = "Eliminar envoltura" })
+
+-- Opcional: Cambiar envoltura de un delimitador a otro
+map("n", "<leader>cs", "cs", { desc = "Cambiar envoltura" })
