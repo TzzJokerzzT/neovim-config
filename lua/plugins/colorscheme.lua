@@ -40,7 +40,16 @@ return {
     priority = 1000, -- Asegurarse de que se cargue antes que otros plugins
     config = function()
       -- Configuración del tema (opcional)
+      vim.g.doki_theme_settings = {
+        italic_comments = true, -- Habilita cursivas en comentarios
+        italic_keywords = true, -- Opcional: habilita cursivas en palabras clave
+        italic_functions = true, -- Opcional: deshabilita cursivas en funciones
+        italic_variables = true, -- Opcional: deshabilita cursivas en variables
+      }
       vim.cmd("colorscheme rei") -- Cambia "doki-theme" por el nombre del tema que prefieras
+      vim.api.nvim_set_hl(0, "Comment", { italic = true, fg = "#928e8e" })
+      vim.api.nvim_set_hl(0, "Keyword", { italic = true, fg = "#7b7979" })
+      vim.api.nvim_set_hl(0, "Function", { italic = true, fg = "#082ab6", bold = true })
       -- vim.g.doki_theme_style = "rei" -- Cambia a otro tema
     end,
   },

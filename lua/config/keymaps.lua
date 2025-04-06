@@ -71,15 +71,30 @@ vim.keymap.set("n", "<leader>on", "<cmd>ObsidianNew<CR>", { desc = "Create New N
 vim.keymap.set("n", "<leader>os", "<cmd>ObsidianSearch<CR>", { desc = "Search Obsidian" })
 vim.keymap.set("n", "<leader>oq", "<cmd>ObsidianQuickSwitch<CR>", { desc = "Quick Switch" })
 
-map("v", "<leader>'", "S'", { desc = "Rodear con comillas simples" })
-map("v", '<leader>"', 'S"', { desc = "Rodear con comillas dobles" })
-map("v", "<leader>(", "S(", { desc = "Rodear con paréntesis" })
-map("v", "<leader>{", "S{", { desc = "Rodear con llaves" })
-map("v", "<leader>[", "S[", { desc = "Rodear con corchetes" })
-map("v", "<leader><", "S<", { desc = "Rodear con ángulos" })
+map("v", "<leader>'", "S'", { desc = "Wrap with single quotes" })
+map("v", '<leader>"', 'S"', { desc = "Wrap with double quotes" })
+map("v", "<leader>(", "S(", { desc = "Wrap with parentheses" })
+map("v", "<leader>{", "S{", { desc = "Wrap with curly braces" })
+map("v", "<leader>[", "S[", { desc = "Wrap with square brackets" })
+map("v", "<leader><", "S<", { desc = "Wrap with angle brackets" })
 
--- Opcional: Eliminar envolturas fácilmente
-map("n", "<leader>ds", "ds", { desc = "Eliminar envoltura" })
+-- Optional: Easily remove wrappers
+map("n", "<leader>ds", "ds", { desc = "Remove wrapper" })
 
--- Opcional: Cambiar envoltura de un delimitador a otro
-map("n", "<leader>cs", "cs", { desc = "Cambiar envoltura" })
+-- Optional: Change wrapper from one delimiter to another
+map("n", "<leader>cs", "cs", { desc = "Change wrapper" })
+
+-- Copilot Chat keymaps
+vim.keymap.set("n", "<leader>ac", ":CopilotChatOpen<CR>", { desc = "Open Copilot Chat" })
+vim.keymap.set("v", "<leader>ac", ":CopilotChatOpen<CR>", { desc = "Open Copilot Chat" })
+vim.keymap.set("n", "<leader>ap", ":CopilotChatPrompt<CR>", { desc = "View Prompt Template" })
+vim.keymap.set("n", "<leader>ae", ":CopilotChatExplain<CR>", { desc = "Explain selected code" })
+vim.keymap.set("n", "<leader>ad", ":CopilotChatDocstring<CR>", { desc = "Generate docstring" })
+vim.keymap.set("v", "<leader>ao", ":CopilotChatOptimize<CR>", { desc = "Optimize selected code" })
+vim.keymap.set("n", "<leader>at", ":CopilotChatTests<CR>", { desc = "Generate unit tests" })
+vim.keymap.set("n", "<leader>af", ":CopilotChatFix<CR>", { desc = "Fix selected code" })
+vim.keymap.set("n", "<leader>ar", ":CopilotChatRefactor<CR>", { desc = "Refactor selected code" })
+vim.keymap.set("v", "<leader>ar", ":CopilotChatRefactor<CR>", { desc = "Refactor selected code" })
+vim.keymap.set("n", "<leader>am", ":CopilotChatModels<CR>", { desc = "Select Available Models" })
+vim.keymap.set("n", "<leader>at", ":CopilotChatToggle<CR>", { desc = "Toggle Chat Windows" })
+vim.keymap.set("n", "<leader>aq", ":CopilotChatClose<CR>", { desc = "Close Chat Window" })
