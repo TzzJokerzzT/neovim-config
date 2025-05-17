@@ -46,10 +46,17 @@ return {
         italic_functions = true, -- Opcional: deshabilita cursivas en funciones
         italic_variables = true, -- Opcional: deshabilita cursivas en variables
       }
-      vim.cmd("colorscheme rei") -- Cambia "doki-theme" por el nombre del tema que prefieras
-      vim.api.nvim_set_hl(0, "Comment", { italic = true, fg = "#928e8e" })
-      vim.api.nvim_set_hl(0, "Keyword", { italic = true, fg = "#7b7979" })
-      vim.api.nvim_set_hl(0, "Function", { italic = true, fg = "#082ab6", bold = true })
+      vim.cmd("colorscheme essex") -- Cambia "doki-theme" por el nombre del tema que prefieras
+      -- vim.api.nvim_set_hl(0, "Comment", { italic = true, fg = "#928e8e" })
+      -- vim.api.nvim_set_hl(0, "Comment", { italic = true })
+      -- vim.api.nvim_set_hl(0, "Keyword", { italic = true, fg = "#7b7979" })
+      -- vim.api.nvim_set_hl(0, "Keyword", { italic = true })
+      -- vim.api.nvim_set_hl(0, "Function", { italic = false, fg = "#848db8", bold = true })
+      -- vim.api.nvim_set_hl(0, "Function", { italic = false, bold = true })
+      -- vim.api.nvim_set_hl(0, "Variable", { italic = true, fg = "#928e8e" })
+      -- vim.api.nvim_set_hl(0, "Type", { italic = false, fg = "#f2eded", bold = true })
+      -- vim.api.nvim_set_hl(0, "Operator", { italic = true, fg = "#98473b" })
+      -- vim.api.nvim_set_hl(0, "Directory", { italic = true, fg = "#f2eded" })
       -- vim.g.doki_theme_style = "rei" -- Cambia a otro tema
     end,
   },

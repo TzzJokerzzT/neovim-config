@@ -1,11 +1,12 @@
 return {
   "zbirenbaum/copilot.lua",
   cmd = "Copilot",
+  enabled = false,
   event = "InsertEnter",
   config = function()
     require("copilot").setup({
       panel = {
-        enabled = true,
+        enabled = false,
         auto_refresh = false,
         keymap = {
           jump_prev = "[[",
@@ -37,7 +38,7 @@ return {
         yaml = false,
         markdown = false,
         help = false,
-        gitcommit = false,
+        gitcommit = true,
         gitrebase = false,
         hgcommit = false,
         svn = false,
@@ -48,4 +49,8 @@ return {
       server_opts_overrides = {},
     })
   end,
+  -- {
+  --   "giuxtaposition/blink-cmp-copilot",
+  --   dependencies = { "zbirenbaum/copilot.lua" },
+  -- },
 }
