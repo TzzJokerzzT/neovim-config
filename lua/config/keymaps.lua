@@ -85,7 +85,7 @@ map("n", "<leader>ds", "ds", { desc = "Remove wrapper" })
 map("n", "<leader>cs", "cs", { desc = "Change wrapper" })
 
 -- Copilot Chat keymaps
--- vim.keymap.set("n", "<leader>ac", ":CopilotChatOpen<CR>", { desc = "Open Copilot Chat" })
+-- vim.keymap.set("n", "<leader>ac", ":CopilotChat<CR>", { desc = "Open Copilot Chat" })
 -- vim.keymap.set("v", "<leader>ac", ":CopilotChatOpen<CR>", { desc = "Open Copilot Chat" })
 -- vim.keymap.set("n", "<leader>ap", ":CopilotChatPrompt<CR>", { desc = "View Prompt Template" })
 -- vim.keymap.set("n", "<leader>ae", ":CopilotChatExplain<CR>", { desc = "Explain selected code" })
