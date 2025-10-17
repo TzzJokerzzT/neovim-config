@@ -97,7 +97,7 @@ nvim
 | Plugin | Descripción | Configuración |
 |--------|-------------|---------------|
 | **[GitHub Copilot](https://github.com/zbirenbaum/copilot.lua)** | Asistente AI de GitHub | `<Tab>` para aceptar |
-| **[CopilotChat](https://github.com/CopilotC-Nvim/CopilotChat.nvim)** | Chat con Copilot | `<leader>cc` |
+| **[CopilotChat](https://github.com/CopilotC-Nvim/CopilotChat.nvim)** | Chat con Copilot | ⚠️ Deshabilitado |
 | **[CodeCompanion](https://github.com/olimorris/codecompanion.nvim)** | Multi-modelo (GPT-4, Gemini) | `<leader>ac` |
 | **[Blink.cmp](https://github.com/saghen/blink.cmp)** | Motor de completado ultra-rápido | Automático |
 
@@ -138,7 +138,6 @@ nvim
 ```
 <leader>ac    - Abrir CodeCompanion chat
 <leader>aa    - Menú de acciones AI  
-<leader>cc    - Copilot Chat
 <Tab>         - Aceptar sugerencia AI
 <leader>co    - Copilot panel
 ```
