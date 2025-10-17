@@ -7,6 +7,8 @@
 
 > ✨ Una configuración moderna de NeoVim optimizada para desarrollo full-stack con integración AI avanzada
 
+**🌐 Idioma**: **Español** | [English](README-EN.md)
+
 ## 📋 Tabla de Contenidos
 
 - [🎯 Características Principales](#-características-principales)
