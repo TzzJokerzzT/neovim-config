@@ -5,4 +5,9 @@ return {
     "CopilotC-Nvim/CopilotChat.nvim",
     enabled = false,
   },
+
+  {
+    "Exafunction/windsurf.nvim",
+    enabled = false,
+  },
 }
