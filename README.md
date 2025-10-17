@@ -123,6 +123,13 @@ nvim
 | **[LSP Config](https://github.com/neovim/nvim-lspconfig)** | Configuración de servidores de lenguaje | TS, JS, Angular, etc. |
 | **[Conform](https://github.com/stevearc/conform.nvim)** | Formateador de código | Prettier, etc. |
 
+### 🐛 Debugging y Git
+| Plugin | Descripción | Atajo |
+|--------|-------------|-------|
+| **[nvim-dap](https://github.com/mfussenegger/nvim-dap)** | Debugging Protocol con UI y texto virtual | `<leader>d*` |
+| **[nvim-dap-ui](https://github.com/rcarriga/nvim-dap-ui)** | Interfaz visual para debugging | Automático |
+| **[git.nvim](https://github.com/dinhhuy258/git.nvim)** | Integración Git avanzada | `<leader>gb`, `<leader>go` |
+
 ## ⌨️ Atajos de Teclado
 
 ### 🤖 Integración AI
@@ -169,11 +176,26 @@ K             - Mostrar información hover
 <leader>xw    - Workspace diagnostics
 ```
 
-### 🔧 Utilidades
+### 🐛 Debugging
 ```
+<leader>d     - Menú de debugging
+<leader>db    - Toggle breakpoint
+<leader>dB    - Breakpoint condicional
+<leader>dc    - Continuar ejecución
+<leader>di    - Step into
+<leader>do    - Step out
+<leader>dO    - Step over
+<leader>dr    - Toggle REPL
+<leader>dt    - Terminar sesión debug
+```
+
+### 🔧 Git y Utilidades
+```
+<leader>gb    - Git blame
+<leader>go    - Abrir en repositorio/browser
+<leader>gg    - Lazygit
 <C-\>         - Alternar terminal
 <leader>sr    - Buscar y reemplazar (Grug Far)
-<leader>gg    - Lazygit
 <leader>cp    - Selector de colores (Minty)
 <leader>uc    - Alternar colorscheme
 ```
@@ -245,6 +267,50 @@ K             - Mostrar información hover
   }
 }
 ```
+
+## 🐛 Sistema de Debugging
+
+### 🎯 Características DAP
+- **Debug Adapter Protocol** completo con nvim-dap
+- **Interfaz visual** con nvim-dap-ui automática
+- **Texto virtual** para variables en tiempo real
+- **Soporte VSCode** - Lee configuraciones de `.vscode/launch.json`
+- **Variables de entorno** - Carga automática desde `.env`
+
+### 🔧 Configuración de Debugging
+```json
+// .vscode/launch.json
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Launch Go",
+      "type": "go",
+      "request": "launch",
+      "mode": "auto",
+      "program": "${workspaceFolder}",
+      "env": {},
+      "args": []
+    }
+  ]
+}
+```
+
+### 🎮 Comandos de Debug
+```vim
+:DapToggleBreakpoint    " Toggle breakpoint en línea actual
+:DapContinue           " Continuar ejecución
+:DapStepInto           " Entrar en función
+:DapStepOver           " Pasar por encima
+:DapTerminate          " Terminar sesión debug
+```
+
+### 📋 Flujo de Debugging
+1. **Colocar breakpoint**: `<leader>db` en la línea deseada
+2. **Iniciar debug**: `<leader>dc` para comenzar
+3. **Navegar código**: `<leader>di/do/dO` para step into/out/over
+4. **Inspeccionar variables**: Texto virtual automático + hover con `<leader>dw`
+5. **Terminar sesión**: `<leader>dt` cuando termines
 
 ## 🎨 Personalización
 

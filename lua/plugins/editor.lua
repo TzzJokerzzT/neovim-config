@@ -269,4 +269,16 @@ return {
     "nvzone/minty",
     cmd = { "Shades", "Huefy" },
   },
+
+  {
+    -- Git
+    "dinhhuy258/git.nvim",
+    event = "BufReadPre", -- Load the plugin before reading a buffer
+    opts = {
+      keymaps = {
+        blame = "<Leader>gb", -- Keybinding to open blame window
+        browse = "<Leader>go", -- Keybinding to open file/folder in git repository
+      },
+    },
+  },
 }
