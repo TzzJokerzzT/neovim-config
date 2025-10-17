@@ -23,8 +23,6 @@ function SaveFile()
   end
 end
 
-vim.api.nvim_set_keymap("n", "<leader>tg", "<cmd>lua _LAZYGIT_TOGGLE()<CR>", { noremap = true, silent = true })
-
 local map = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
 
