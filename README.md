@@ -24,6 +24,7 @@
 ## 🎯 Características Principales
 
 ### 🌟 Destacados
+
 - **🎨 Tema Essex (Doki Theme)** - Inspirado en anime con soporte completo
 - **🤖 Integración AI Múltiple** - Copilot, CodeCompanion, Avante, Claude
 - **🍅 Pomodoro Timer Integrado** - Sistema completo de productividad con Lualine
@@ -33,6 +34,7 @@
 - **🎯 Herramientas de Productividad** - Harpoon, Oil, Neo-tree, ToggleTerm
 
 ### 💻 Desarrollo
+
 - **LSP Completo** - Soporte para TypeScript, JavaScript, Angular, Astro, JSON, Markdown
 - **Formateo Automático** - Prettier integrado con Conform
 - **Linting Inteligente** - ESLint y nvim-lint
@@ -84,72 +86,80 @@ nvim
 ## 🔧 Plugins y Herramientas
 
 ### 🎨 UI y Temas
-| Plugin | Descripción | Estado |
-|--------|-------------|--------|
-| **[Doki Theme](https://github.com/doki-theme/doki-theme-vim)** | Tema Essex inspirado en anime (por defecto) | ✅ Activo |
-| **[Tokyo Night](https://github.com/folke/tokyonight.nvim)** | Tema oscuro popular | ✅ Disponible |
-| **[Catppuccin](https://github.com/catppuccin/nvim)** | Tema pastel | ✅ Disponible |
-| **[Lualine](https://github.com/nvim-lualine/lualine.nvim)** | Barra de estado con Pomodoro y WakaTime | ✅ Personalizada |
-| **[Bufferline](https://github.com/akinsho/bufferline.nvim)** | Pestañas de buffer elegantes | ⚠️ Deshabilitado |
-| **[Noice](https://github.com/folke/noice.nvim)** | UI mejorada para mensajes | ✅ Activo |
-| **[Icon Picker](https://github.com/ziontee113/icon-picker.nvim)** | Selector de iconos y emojis | ✅ Activo |
+
+| Plugin                                                            | Descripción                             | Estado           |
+| ----------------------------------------------------------------- | --------------------------------------- | ---------------- |
+| **[Doki Theme](https://github.com/doki-theme/doki-theme-vim)**    | Temas inspirado en anime (por defecto)  | ✅ Activo        |
+| **[Tokyo Night](https://github.com/folke/tokyonight.nvim)**       | Tema oscuro popular                     | ✅ Disponible    |
+| **[Catppuccin](https://github.com/catppuccin/nvim)**              | Tema pastel                             | ✅ Disponible    |
+| **[Lualine](https://github.com/nvim-lualine/lualine.nvim)**       | Barra de estado con Pomodoro y WakaTime | ✅ Personalizada |
+| **[Bufferline](https://github.com/akinsho/bufferline.nvim)**      | Pestañas de buffer elegantes            | ⚠️ Deshabilitado |
+| **[Noice](https://github.com/folke/noice.nvim)**                  | UI mejorada para mensajes               | ✅ Activo        |
+| **[Icon Picker](https://github.com/ziontee113/icon-picker.nvim)** | Selector de iconos y emojis             | ✅ Activo        |
 
 ### 🤖 AI y Completado
-| Plugin | Descripción | Configuración |
-|--------|-------------|---------------|
-| **[GitHub Copilot](https://github.com/zbirenbaum/copilot.lua)** | Asistente AI de GitHub | `<Tab>` para aceptar |
-| **[CopilotChat](https://github.com/CopilotC-Nvim/CopilotChat.nvim)** | Chat con Copilot | ⚠️ Deshabilitado |
-| **[CodeCompanion](https://github.com/olimorris/codecompanion.nvim)** | Multi-modelo (GPT-4, Gemini) | `<leader>ac` |
-| **[Blink.cmp](https://github.com/saghen/blink.cmp)** | Motor de completado ultra-rápido | Automático |
+
+| Plugin                                                               | Descripción                      | Configuración        |
+| -------------------------------------------------------------------- | -------------------------------- | -------------------- |
+| **[GitHub Copilot](https://github.com/zbirenbaum/copilot.lua)**      | Asistente AI de GitHub           | `<Tab>` para aceptar |
+| **[CopilotChat](https://github.com/CopilotC-Nvim/CopilotChat.nvim)** | Chat con Copilot                 | ⚠️ Deshabilitado     |
+| **[CodeCompanion](https://github.com/olimorris/codecompanion.nvim)** | Multi-modelo (GPT-4, Gemini)     | `<leader>ac`         |
+| **[Blink.cmp](https://github.com/saghen/blink.cmp)**                 | Motor de completado ultra-rápido | Automático           |
 
 ### 📁 Gestión de Archivos
-| Plugin | Descripción | Atajo |
-|--------|-------------|-------|
-| **[Neo-tree](https://github.com/nvim-neo-tree/neo-tree.nvim)** | Explorador de archivos moderno | `<leader>e` |
-| **[Oil](https://github.com/stevearc/oil.nvim)** | Editar directorios como buffers | `<leader>o` |
-| **[FZF-Lua](https://github.com/ibhagwan/fzf-lua)** | Buscador difuso | `<leader>ff` |
-| **[Harpoon 2](https://github.com/ThePrimeagen/harpoon/tree/harpoon2)** | Navegación rápida de archivos | `<leader>h` |
+
+| Plugin                                                                 | Descripción                     | Atajo        |
+| ---------------------------------------------------------------------- | ------------------------------- | ------------ |
+| **[Neo-tree](https://github.com/nvim-neo-tree/neo-tree.nvim)**         | Explorador de archivos moderno  | `<leader>e`  |
+| **[Oil](https://github.com/stevearc/oil.nvim)**                        | Editar directorios como buffers | `<leader>o`  |
+| **[FZF-Lua](https://github.com/ibhagwan/fzf-lua)**                     | Buscador difuso                 | `<leader>ff` |
+| **[Harpoon 2](https://github.com/ThePrimeagen/harpoon/tree/harpoon2)** | Navegación rápida de archivos   | `<leader>h`  |
 
 ### 🍅 Sistema de Productividad
-| Herramienta | Descripción | Comandos |
-|-------------|-------------|----------|
+
+| Herramienta        | Descripción                               | Comandos                       |
+| ------------------ | ----------------------------------------- | ------------------------------ |
 | **Pomodoro Timer** | Sistema completo trabajo→standby→descanso | `<leader>ps`, `:PomodoroStart` |
-| **WakaTime** | Seguimiento de tiempo de codificación | Automático en Lualine |
-| **ToggleTerm** | Terminal integrado flotante | `<C-\>` |
-| **Which-key** | Ayuda de atajos de teclado | Automático |
+| **WakaTime**       | Seguimiento de tiempo de codificación     | Automático en Lualine          |
+| **ToggleTerm**     | Terminal integrado flotante               | `<C-\>`                        |
+| **Which-key**      | Ayuda de atajos de teclado                | Automático                     |
 
 ### 🔧 Desarrollo
-| Plugin | Descripción | Lenguajes |
-|--------|-------------|-----------|
-| **[Mason](https://github.com/williamboman/mason.nvim)** | Gestor LSP/DAP/Linter | Todos |
-| **[Treesitter](https://github.com/nvim-treesitter/nvim-treesitter)** | Resaltado de sintaxis | 40+ lenguajes |
-| **[LSP Config](https://github.com/neovim/nvim-lspconfig)** | Configuración de servidores de lenguaje | TS, JS, Angular, etc. |
-| **[Conform](https://github.com/stevearc/conform.nvim)** | Formateador de código | Prettier, etc. |
+
+| Plugin                                                               | Descripción                             | Lenguajes             |
+| -------------------------------------------------------------------- | --------------------------------------- | --------------------- |
+| **[Mason](https://github.com/williamboman/mason.nvim)**              | Gestor LSP/DAP/Linter                   | Todos                 |
+| **[Treesitter](https://github.com/nvim-treesitter/nvim-treesitter)** | Resaltado de sintaxis                   | 40+ lenguajes         |
+| **[LSP Config](https://github.com/neovim/nvim-lspconfig)**           | Configuración de servidores de lenguaje | TS, JS, Angular, etc. |
+| **[Conform](https://github.com/stevearc/conform.nvim)**              | Formateador de código                   | Prettier, etc.        |
 
 ### 🐛 Debugging y Git
-| Plugin | Descripción | Atajo |
-|--------|-------------|-------|
-| **[nvim-dap](https://github.com/mfussenegger/nvim-dap)** | Debugging Protocol con UI y texto virtual | `<leader>d*` |
-| **[nvim-dap-ui](https://github.com/rcarriga/nvim-dap-ui)** | Interfaz visual para debugging | Automático |
-| **[git.nvim](https://github.com/dinhhuy258/git.nvim)** | Integración Git avanzada | `<leader>gb`, `<leader>go` |
+
+| Plugin                                                     | Descripción                               | Atajo                      |
+| ---------------------------------------------------------- | ----------------------------------------- | -------------------------- |
+| **[nvim-dap](https://github.com/mfussenegger/nvim-dap)**   | Debugging Protocol con UI y texto virtual | `<leader>d*`               |
+| **[nvim-dap-ui](https://github.com/rcarriga/nvim-dap-ui)** | Interfaz visual para debugging            | Automático                 |
+| **[git.nvim](https://github.com/dinhhuy258/git.nvim)**     | Integración Git avanzada                  | `<leader>gb`, `<leader>go` |
 
 ## ⌨️ Atajos de Teclado
 
 ### 🤖 Integración AI
+
 ```
 <leader>ac    - Abrir CodeCompanion chat
-<leader>aa    - Menú de acciones AI  
+<leader>aa    - Menú de acciones AI
 <Tab>         - Aceptar sugerencia AI
 <leader>co    - Copilot panel
 ```
 
 ### 🍅 Sistema Pomodoro
+
 ```
 <leader>ps    - Iniciar sesión interactiva (trabajo → descanso → standby)
 <leader>pS    - Detener sesión actual
 <leader>pi    - Mostrar información/estado
 <leader>pw    - Configurar tiempo de trabajo (interactivo)
-<leader>pb    - Configurar tiempo de descanso (interactivo)  
+<leader>pb    - Configurar tiempo de descanso (interactivo)
 <leader>pc    - Configurar tiempos por defecto
 <leader>p1    - Inicio rápido: 25min trabajo, 5min descanso
 <leader>p2    - Inicio rápido: 45min trabajo, 10min descanso
@@ -157,6 +167,7 @@ nvim
 ```
 
 ### 📁 Navegación de Archivos
+
 ```
 <leader>e     - Alternar Neo-tree
 <leader>o     - Abrir Oil (editar directorio)
@@ -168,9 +179,10 @@ nvim
 ```
 
 ### 💻 Desarrollo
+
 ```
 gd            - Ir a definición
-gr            - Ir a referencias  
+gr            - Ir a referencias
 K             - Mostrar información hover
 <leader>ca    - Acciones de código
 <leader>cr    - Renombrar símbolo
@@ -179,6 +191,7 @@ K             - Mostrar información hover
 ```
 
 ### 🐛 Debugging
+
 ```
 <leader>d     - Menú de debugging
 <leader>db    - Toggle breakpoint
@@ -192,6 +205,7 @@ K             - Mostrar información hover
 ```
 
 ### 🔧 Git y Utilidades
+
 ```
 <leader>gb    - Git blame
 <leader>go    - Abrir en repositorio/browser
@@ -208,6 +222,7 @@ K             - Mostrar información hover
 ## 🍅 Sistema Pomodoro
 
 ### 🎯 Características
+
 - **Timer Visual**: Integrado en Lualine con iconos y progreso
 - **Flujo Completo**: Trabajo → Standby → Descanso → Idle
 - **Configuración Flexible**: Tiempos personalizables con formato inteligente
@@ -215,17 +230,19 @@ K             - Mostrar información hover
 - **Comandos Interactivos**: Ventanas flotantes para configuración
 
 ### 📊 Estados del Timer
-| Estado | Icono | Descripción |
-|--------|-------|-------------|
-| **Trabajo** | ⏰ | Sesión de trabajo activa |
-| **Standby** | ⏸️ | Transición breve antes del descanso | 
-| **Descanso** | ☕ | Tiempo de descanso merecido |
-| **Idle** | 🍅 | Timer inactivo, listo para nueva sesión |
+
+| Estado       | Icono | Descripción                             |
+| ------------ | ----- | --------------------------------------- |
+| **Trabajo**  | ⏰    | Sesión de trabajo activa                |
+| **Standby**  | ⏸️    | Transición breve antes del descanso     |
+| **Descanso** | ☕    | Tiempo de descanso merecido             |
+| **Idle**     | 🍅    | Timer inactivo, listo para nueva sesión |
 
 ### 🕐 Formatos de Tiempo Soportados
+
 ```
 25           - 25 minutos
-25min        - 25 minutos  
+25min        - 25 minutos
 1h           - 1 hora
 1h30m        - 1 hora 30 minutos
 90s          - 90 segundos
@@ -233,6 +250,7 @@ K             - Mostrar información hover
 ```
 
 ### 📝 Comandos Disponibles
+
 ```vim
 :PomodoroStart [trabajo] [descanso] [standby]  " Iniciar con tiempos opcionales
 :PomodoroInteractive                           " Modo interactivo completo
@@ -246,6 +264,7 @@ K             - Mostrar información hover
 ## 🤖 Configuración AI
 
 ### 🔧 GitHub Copilot
+
 ```vim
 " Primera configuración
 :Copilot setup
@@ -257,12 +276,14 @@ K             - Mostrar información hover
 ```
 
 ### 💬 CodeCompanion
+
 - **Modelos disponibles**: GPT-4, Gemini 2.5 Pro, Claude
 - **Chat interactivo**: `<leader>ac`
 - **Acciones contextuales**: `<leader>aa`
 - **Configuración**: Auto-detecta API keys en variables de entorno
 
 ### ⚙️ Configuración Avanzada
+
 ```lua
 -- Personalizar en lua/plugins/codecompanion.lua
 {
@@ -276,6 +297,7 @@ K             - Mostrar información hover
 ## 🐛 Sistema de Debugging
 
 ### 🎯 Características DAP
+
 - **Debug Adapter Protocol** completo con nvim-dap
 - **Interfaz visual** con nvim-dap-ui automática
 - **Texto virtual** para variables en tiempo real
@@ -283,6 +305,7 @@ K             - Mostrar información hover
 - **Variables de entorno** - Carga automática desde `.env`
 
 ### 🔧 Configuración de Debugging
+
 ```json
 // .vscode/launch.json
 {
@@ -302,6 +325,7 @@ K             - Mostrar información hover
 ```
 
 ### 🎮 Comandos de Debug
+
 ```vim
 :DapToggleBreakpoint    " Toggle breakpoint en línea actual
 :DapContinue           " Continuar ejecución
@@ -311,6 +335,7 @@ K             - Mostrar información hover
 ```
 
 ### 📋 Flujo de Debugging
+
 1. **Colocar breakpoint**: `<leader>db` en la línea deseada
 2. **Iniciar debug**: `<leader>dc` para comenzar
 3. **Navegar código**: `<leader>di/do/dO` para step into/out/over
@@ -320,13 +345,15 @@ K             - Mostrar información hover
 ## 🎨 Personalización
 
 ### 🌈 Cambiar Tema
+
 ```vim
 :colorscheme tokyonight    " Tokyo Night
-:colorscheme catppuccin    " Catppuccin  
+:colorscheme catppuccin    " Catppuccin
 :colorscheme doki-theme    " Essex (por defecto)
 ```
 
 ### 🔧 Habilitar Bufferline
+
 ```lua
 -- En lua/plugins/ui.lua, cambiar enabled = false a enabled = true
 {
@@ -336,15 +363,18 @@ K             - Mostrar información hover
 ```
 
 ### 📊 Personalizar Lualine
+
 La configuración incluye:
+
 - **Sección A**: Modo vim
 - **Sección B**: Branch git + diff
-- **Sección C**: Filename + diagnostics  
+- **Sección C**: Filename + diagnostics
 - **Sección X**: Filetype + encoding
 - **Sección Y**: Pomodoro timer + WakaTime
 - **Sección Z**: Location + progress
 
 ### 🔔 Configurar Notificaciones
+
 ```lua
 -- En lua/plugins/ui.lua personalizar Noice
 {
@@ -362,12 +392,15 @@ La configuración incluye:
 ## 📊 Monitoreo y Productividad
 
 ### ⏱️ WakaTime Integration
-1. **Instalar CLI**: 
+
+1. **Instalar CLI**:
+
    ```bash
    curl -fsSL https://raw.githubusercontent.com/wakatime/vim-wakatime/master/scripts/install_cli.py | python
    ```
 
 2. **Configurar API Key**:
+
    ```vim
    :WakaTimeApiKey tu-api-key-aqui
    ```
@@ -375,21 +408,25 @@ La configuración incluye:
 3. **Visualización**: Tiempo aparece automáticamente en Lualine
 
 ### 📈 Métricas Disponibles
+
 - **Tiempo de codificación** en tiempo real
 - **Progreso del Pomodoro** visual
 - **Sessiones completadas** por día
 - **Archivos y proyectos** más trabajados
 
 ### 🎯 Dashboard Personalizado
+
 Usando Snacks.nvim dashboard con:
+
 - **Archivos recientes**
-- **Estadísticas de WakaTime**  
+- **Estadísticas de WakaTime**
 - **Accesos rápidos** a proyectos
 - **Información del sistema**
 
 ## 🚀 Comenzar
 
 ### 📚 Primeros Pasos
+
 1. **Instalar configuración** siguiendo las instrucciones
 2. **Configurar AI tools** (Copilot, WakaTime)
 3. **Probar Pomodoro**: `<leader>ps` para sesión interactiva
@@ -397,6 +434,7 @@ Usando Snacks.nvim dashboard con:
 5. **Personalizar tema**: `:colorscheme` + `<Tab>` para opciones
 
 ### 💡 Tips de Productividad
+
 - **Usar Harpoon**: Marca archivos frecuentes con `<leader>h`
 - **Aprovechar AI**: `<leader>ac` para chat, `<Tab>` para sugerencias
 - **Configurar Pomodoro**: Empieza con `<leader>p1` (sesión de 25min)
@@ -404,6 +442,7 @@ Usando Snacks.nvim dashboard con:
 - **Búsqueda potente**: `<leader>fg` para buscar en todo el proyecto
 
 ### 🔍 Comandos Útiles
+
 ```vim
 :checkhealth          " Verificar configuración
 :Lazy                 " Gestor de plugins
@@ -415,17 +454,20 @@ Usando Snacks.nvim dashboard con:
 ## 🤝 Contribuir
 
 ### 🐛 Reportar Issues
+
 - Usa el [issue tracker](https://github.com/TzzJokerzzT/neovim-config/issues)
 - Incluye información del sistema (`nvim --version`)
 - Adjunta `:checkhealth` si es problema de configuración
 
 ### 💡 Sugerir Mejoras
+
 - **Fork** el repositorio
 - **Crea** una branch: `feature/nueva-funcionalidad`
 - **Commit** tus cambios
 - **Push** y crea un **Pull Request**
 
 ### ⭐ Mostrar Apoyo
+
 - **Star** el repositorio si te gusta
 - **Fork** para tus propias modificaciones
 - **Share** con otros desarrolladores
@@ -440,10 +482,11 @@ Este proyecto está bajo la Licencia MIT. Ver [LICENSE](LICENSE) para más detal
 
 **🚀 Hecho con 💜 por [TzzJokerzzT](https://github.com/TzzJokerzzT)**
 
-*Una configuración moderna de NeoVim para desarrolladores que buscan productividad y elegancia*
+_Una configuración moderna de NeoVim para desarrolladores que buscan productividad y elegancia_
 
 [![GitHub](https://img.shields.io/badge/GitHub-TzzJokerzzT-181717?logo=github)](https://github.com/TzzJokerzzT)
 [![Neovim](https://img.shields.io/badge/Neovim-0.10+-57A143?logo=neovim)](https://neovim.io)
 [![LazyVim](https://img.shields.io/badge/LazyVim-Framework-6366f1)](https://lazyvim.org)
 
 </div>
+
