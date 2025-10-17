@@ -125,7 +125,7 @@ nvim
 | ------------------ | ---------------------------------- | ------------------------------ |
 | **Pomodoro Timer** | Complete work→standby→break system | `<leader>ps`, `:PomodoroStart` |
 | **WakaTime**       | Coding time tracking               | Automatic in Lualine           |
-| **ToggleTerm**     | Floating integrated terminal       | `<C-\>`                        |
+| **ToggleTerm**     | Floating integrated terminal       | `<C-e>`                        |
 | **Which-key**      | Keyboard shortcut help             | Automatic                      |
 
 ### 🔧 Development
@@ -235,6 +235,7 @@ Ctrl+G        - 🤖 Interactive commit with confirmation
 ```
 
 **🌟 Advanced Features**:
+
 - 🤖 **Contextual Analysis**: OpenCode examines changes, files, and history
 - 📝 **Conventional Commits**: Professional format with appropriate emojis
 - ⚡ **Triple Mode**: Auto, message-only, or interactive based on your needs
@@ -243,6 +244,7 @@ Ctrl+G        - 🤖 Interactive commit with confirmation
 - 🎯 **Optimized Context**: Efficient prompts for better performance
 
 **💡 Use Cases**:
+
 - **Auto Mode (C)**: Quick commits without interruptions
 - **Message Only (Ctrl+C)**: Review before manual commit
 - **Interactive (Ctrl+G)**: Full control with preview and confirmation
@@ -517,4 +519,3 @@ _A modern NeoVim configuration for developers seeking productivity and elegance_
 [![LazyVim](https://img.shields.io/badge/LazyVim-Framework-6366f1)](https://lazyvim.org)
 
 </div>
-
