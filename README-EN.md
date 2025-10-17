@@ -38,7 +38,7 @@
 - **Complete LSP** - Support for TypeScript, JavaScript, Angular, Astro, JSON, Markdown
 - **Auto Formatting** - Prettier integrated with Conform
 - **Smart Linting** - ESLint and nvim-lint
-- **Git Integration** - Fugitive, Gitsigns, Lazygit
+- **Git Integration** - Fugitive, Gitsigns, Lazygit + OpenCode AI commits
 - **Integrated Terminal** - ToggleTerm with custom configuration
 
 ## 📦 Installation
@@ -218,6 +218,22 @@ K             - Show hover information
 <C-i>         - Insert icon (insert mode)
 <leader>uc    - Toggle colorscheme
 ```
+
+### 🤖 Lazygit + OpenCode AI
+
+Intelligent commit message generation with integrated AI:
+
+```
+# In Lazygit (files):
+C             - Generate complete commit with OpenCode AI
+Ctrl+C        - Generate commit message only with AI
+```
+
+**Features**:
+- 🤖 **Automatic Analysis**: OpenCode analyzes changes and context
+- 📝 **Smart Messages**: Conventional Commits conventions
+- ⚡ **Native Integration**: Custom commands in Lazygit
+- 🎯 **Precise Context**: Considers diff, files and history
 
 ## 🍅 Pomodoro System
 
