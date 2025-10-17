@@ -92,6 +92,7 @@ nvim
 | **[Lualine](https://github.com/nvim-lualine/lualine.nvim)** | Barra de estado con Pomodoro y WakaTime | ✅ Personalizada |
 | **[Bufferline](https://github.com/akinsho/bufferline.nvim)** | Pestañas de buffer elegantes | ⚠️ Deshabilitado |
 | **[Noice](https://github.com/folke/noice.nvim)** | UI mejorada para mensajes | ✅ Activo |
+| **[Icon Picker](https://github.com/ziontee113/icon-picker.nvim)** | Selector de iconos y emojis | ✅ Activo |
 
 ### 🤖 AI y Completado
 | Plugin | Descripción | Configuración |
@@ -198,6 +199,9 @@ K             - Mostrar información hover
 <C-\>         - Alternar terminal
 <leader>sr    - Buscar y reemplazar (Grug Far)
 <leader>cp    - Selector de colores (Minty)
+<leader>si    - Selector de iconos (Icon Picker)
+<leader>sy    - Copiar icono seleccionado
+<C-i>         - Insertar icono (modo insertar)
 <leader>uc    - Alternar colorscheme
 ```
 
