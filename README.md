@@ -225,15 +225,17 @@ Generación inteligente de mensajes de commit con IA integrada:
 
 ```
 # En Lazygit (archivos):
-C             - Generar commit completo con OpenCode AI
+C             - Commit automático con IA (sin interacción)
 Ctrl+C        - Generar solo mensaje de commit con IA
+Ctrl+G        - Commit interactivo con confirmación
 ```
 
 **Características**:
 - 🤖 **Análisis Automático**: OpenCode analiza cambios y contexto
 - 📝 **Mensajes Inteligentes**: Convenciones Conventional Commits
 - ⚡ **Integración Nativa**: Comandos personalizados en Lazygit
-- 🎯 **Contexto Preciso**: Considera diff, archivos y historial
+- 🎯 **Múltiples Modos**: Automático, solo mensaje, o interactivo
+- ⏱️ **Sin Colgarse**: Timeout y fallbacks inteligentes
 
 ## 🍅 Sistema Pomodoro
 
