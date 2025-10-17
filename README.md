@@ -26,7 +26,7 @@
 ### 🌟 Destacados
 
 - **🎨 Tema Essex (Doki Theme)** - Inspirado en anime con soporte completo
-- **🤖 Integración AI Múltiple** - Copilot, CodeCompanion, Avante, Claude
+- **🤖 Integración AI Múltiple** - Copilot, CodeCompanion, Avante, Claude, OpenCode commits
 - **🍅 Pomodoro Timer Integrado** - Sistema completo de productividad con Lualine
 - **⚡ 50+ Plugins Optimizados** - Carga lazy inteligente, inicio < 50ms
 - **📊 WakaTime Integrado** - Seguimiento de tiempo en la barra de estado
@@ -38,7 +38,7 @@
 - **LSP Completo** - Soporte para TypeScript, JavaScript, Angular, Astro, JSON, Markdown
 - **Formateo Automático** - Prettier integrado con Conform
 - **Linting Inteligente** - ESLint y nvim-lint
-- **Git Integrado** - Fugitive, Gitsigns, Lazygit + OpenCode AI commits
+- **Git Integrado** - Fugitive, Gitsigns, Lazygit + OpenCode AI commits inteligentes
 - **Terminal Integrado** - ToggleTerm con configuración personalizada
 
 ## 📦 Instalación
@@ -56,6 +56,10 @@ sudo pacman -S neovim git curl nodejs npm python-pip ripgrep fd
 
 # Instalar fuente Nerd Font (recomendado)
 # Descargar desde: https://nerdfonts.com
+
+# 🤖 OpenCode para commits AI (opcional)
+# Instalar desde: https://github.com/sst/opencode
+npm install -g @sst/opencode
 ```
 
 ### 🚀 Instalación Rápida
@@ -221,21 +225,27 @@ K             - Mostrar información hover
 
 ### 🤖 Lazygit + OpenCode AI
 
-Generación inteligente de mensajes de commit con IA integrada:
+Sistema inteligente de commits con IA que revolutiona tu flujo de trabajo Git:
 
-```
-# En Lazygit (archivos):
-C             - Commit automático con IA (sin interacción)
-Ctrl+C        - Generar solo mensaje de commit con IA
-Ctrl+G        - Commit interactivo con confirmación
+```bash
+# En Lazygit (pestaña Files):
+C             - 🚀 Commit automático con IA (sin interacción)
+Ctrl+C        - 📝 Generar solo mensaje de commit con IA  
+Ctrl+G        - 🤖 Commit interactivo con confirmación
 ```
 
-**Características**:
-- 🤖 **Análisis Automático**: OpenCode analiza cambios y contexto
-- 📝 **Mensajes Inteligentes**: Convenciones Conventional Commits
-- ⚡ **Integración Nativa**: Comandos personalizados en Lazygit
-- 🎯 **Múltiples Modos**: Automático, solo mensaje, o interactivo
-- ⏱️ **Sin Colgarse**: Timeout y fallbacks inteligentes
+**🌟 Características Avanzadas**:
+- 🤖 **Análisis Contextual**: OpenCode examina cambios, archivos y historial
+- 📝 **Conventional Commits**: Formato profesional con emojis apropiados
+- ⚡ **Triple Modalidad**: Auto, solo mensaje, o interactivo según necesidad
+- ⏱️ **Anti-Colgado**: Timeout de 15-20s con fallbacks inteligentes
+- 🛡️ **Robust Fallbacks**: Si OpenCode falla, genera mensajes por defecto
+- 🎯 **Contexto Optimizado**: Prompts eficientes para mejor rendimiento
+
+**💡 Casos de Uso**:
+- **Modo Automático (C)**: Commits rápidos sin interrupciones
+- **Solo Mensaje (Ctrl+C)**: Para revisar antes de commitear manualmente  
+- **Interactivo (Ctrl+G)**: Control total con vista previa y confirmación
 
 ## 🍅 Sistema Pomodoro
 

@@ -26,7 +26,7 @@
 ### 🌟 Highlights
 
 - **🎨 Essex Theme (Doki Theme)** - Anime-inspired with full support
-- **🤖 Multiple AI Integration** - Copilot, CodeCompanion, Avante, Claude
+- **🤖 Multiple AI Integration** - Copilot, CodeCompanion, Avante, Claude, OpenCode commits
 - **🍅 Integrated Pomodoro Timer** - Complete productivity system with Lualine
 - **⚡ 50+ Optimized Plugins** - Smart lazy loading, startup < 50ms
 - **📊 WakaTime Integration** - Time tracking in status bar
@@ -38,7 +38,7 @@
 - **Complete LSP** - Support for TypeScript, JavaScript, Angular, Astro, JSON, Markdown
 - **Auto Formatting** - Prettier integrated with Conform
 - **Smart Linting** - ESLint and nvim-lint
-- **Git Integration** - Fugitive, Gitsigns, Lazygit + OpenCode AI commits
+- **Git Integration** - Fugitive, Gitsigns, Lazygit + smart OpenCode AI commits
 - **Integrated Terminal** - ToggleTerm with custom configuration
 
 ## 📦 Installation
@@ -56,6 +56,10 @@ sudo pacman -S neovim git curl nodejs npm python-pip ripgrep fd
 
 # Install Nerd Font (recommended)
 # Download from: https://nerdfonts.com
+
+# 🤖 OpenCode for AI commits (optional)
+# Install from: https://github.com/sst/opencode
+npm install -g @sst/opencode
 ```
 
 ### 🚀 Quick Installation
@@ -221,21 +225,27 @@ K             - Show hover information
 
 ### 🤖 Lazygit + OpenCode AI
 
-Intelligent commit message generation with integrated AI:
+Revolutionary intelligent commit system that transforms your Git workflow:
 
-```
-# In Lazygit (files):
-C             - Auto commit with AI (no interaction)
-Ctrl+C        - Generate commit message only with AI
-Ctrl+G        - Interactive commit with confirmation
+```bash
+# In Lazygit (Files tab):
+C             - 🚀 Auto commit with AI (no interaction)
+Ctrl+C        - 📝 Generate commit message only with AI
+Ctrl+G        - 🤖 Interactive commit with confirmation
 ```
 
-**Features**:
-- 🤖 **Automatic Analysis**: OpenCode analyzes changes and context
-- 📝 **Smart Messages**: Conventional Commits conventions
-- ⚡ **Native Integration**: Custom commands in Lazygit
-- 🎯 **Multiple Modes**: Automatic, message-only, or interactive
-- ⏱️ **No Hanging**: Timeout and intelligent fallbacks
+**🌟 Advanced Features**:
+- 🤖 **Contextual Analysis**: OpenCode examines changes, files, and history
+- 📝 **Conventional Commits**: Professional format with appropriate emojis
+- ⚡ **Triple Mode**: Auto, message-only, or interactive based on your needs
+- ⏱️ **Anti-Hang**: 15-20s timeout with intelligent fallbacks
+- 🛡️ **Robust Fallbacks**: Generates default messages if OpenCode fails
+- 🎯 **Optimized Context**: Efficient prompts for better performance
+
+**💡 Use Cases**:
+- **Auto Mode (C)**: Quick commits without interruptions
+- **Message Only (Ctrl+C)**: Review before manual commit
+- **Interactive (Ctrl+G)**: Full control with preview and confirmation
 
 ## 🍅 Pomodoro System
 
