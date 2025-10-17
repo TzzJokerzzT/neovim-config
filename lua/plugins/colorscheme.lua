@@ -34,7 +34,9 @@ return {
   --     vim.cmd("colorscheme nightwolf")
   --   end,
   -- },
+
   {
+    --Doki Theme
     "doki-theme/doki-theme-vim",
     lazy = false, -- Cargar el plugin inmediatamente
     priority = 1000, -- Asegurarse de que se cargue antes que otros plugins
@@ -46,7 +48,7 @@ return {
         italic_functions = true, -- Opcional: deshabilita cursivas en funciones
         italic_variables = true, -- Opcional: deshabilita cursivas en variables
       }
-      vim.cmd("colorscheme essex") -- Cambia "doki-theme" por el nombre del tema que prefieras
+      vim.cmd("colorscheme mai_dark") -- Cambia "doki-theme" por el nombre del tema que prefieras
       -- vim.api.nvim_set_hl(0, "Comment", { italic = true, fg = "#928e8e" })
       -- vim.api.nvim_set_hl(0, "Comment", { italic = true })
       -- vim.api.nvim_set_hl(0, "Keyword", { italic = true, fg = "#7b7979" })
