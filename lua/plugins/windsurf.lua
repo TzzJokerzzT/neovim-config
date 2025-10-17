@@ -3,7 +3,6 @@ return {
   config = function()
     require("codeium").setup({
       -- Aquí van tus configuraciones personalizadas
-      enable = false,
       enable_cmp_source = false,
       virtual_text = {
         enabled = true,
