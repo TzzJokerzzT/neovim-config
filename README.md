@@ -125,7 +125,7 @@ nvim
 | ------------------ | ----------------------------------------- | ------------------------------ |
 | **Pomodoro Timer** | Sistema completo trabajo→standby→descanso | `<leader>ps`, `:PomodoroStart` |
 | **WakaTime**       | Seguimiento de tiempo de codificación     | Automático en Lualine          |
-| **ToggleTerm**     | Terminal integrado flotante               | `<C-\>`                        |
+| **ToggleTerm**     | Terminal integrado flotante               | `<C-e>`                        |
 | **Which-key**      | Ayuda de atajos de teclado                | Automático                     |
 
 ### 🔧 Desarrollo
@@ -230,11 +230,12 @@ Sistema inteligente de commits con IA que revolutiona tu flujo de trabajo Git:
 ```bash
 # En Lazygit (pestaña Files):
 C             - 🚀 Commit automático con IA (sin interacción)
-Ctrl+C        - 📝 Generar solo mensaje de commit con IA  
+Ctrl+C        - 📝 Generar solo mensaje de commit con IA
 Ctrl+G        - 🤖 Commit interactivo con confirmación
 ```
 
 **🌟 Características Avanzadas**:
+
 - 🤖 **Análisis Contextual**: OpenCode examina cambios, archivos y historial
 - 📝 **Conventional Commits**: Formato profesional con emojis apropiados
 - ⚡ **Triple Modalidad**: Auto, solo mensaje, o interactivo según necesidad
@@ -243,8 +244,9 @@ Ctrl+G        - 🤖 Commit interactivo con confirmación
 - 🎯 **Contexto Optimizado**: Prompts eficientes para mejor rendimiento
 
 **💡 Casos de Uso**:
+
 - **Modo Automático (C)**: Commits rápidos sin interrupciones
-- **Solo Mensaje (Ctrl+C)**: Para revisar antes de commitear manualmente  
+- **Solo Mensaje (Ctrl+C)**: Para revisar antes de commitear manualmente
 - **Interactivo (Ctrl+G)**: Control total con vista previa y confirmación
 
 ## 🍅 Sistema Pomodoro
@@ -517,4 +519,3 @@ _Una configuración moderna de NeoVim para desarrolladores que buscan productivi
 [![LazyVim](https://img.shields.io/badge/LazyVim-Framework-6366f1)](https://lazyvim.org)
 
 </div>
-
