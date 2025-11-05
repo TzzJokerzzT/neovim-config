@@ -25,7 +25,7 @@
 
 ### 🌟 Highlights
 
-- **🎨 Essex Theme (Doki Theme)** - Anime-inspired with full support
+- **🎨 C. Viper Custom Theme** - Custom colorscheme inspired by Street Fighter
 - **🤖 Multiple AI Integration** - Copilot, CodeCompanion, Avante, Claude, OpenCode commits
 - **🍅 Integrated Pomodoro Timer** - Complete productivity system with Lualine
 - **⚡ 50+ Optimized Plugins** - Smart lazy loading, startup < 50ms
@@ -93,7 +93,8 @@ nvim
 
 | Plugin                                                            | Description                           | Status        |
 | ----------------------------------------------------------------- | ------------------------------------- | ------------- |
-| **[Doki Theme](https://github.com/doki-theme/doki-theme-vim)**    | Anime-inspired theme (default)        | ✅ Active     |
+| **[C. Viper](lua/c_viper/)**                                     | Street Fighter custom theme (default) | ✅ Active     |
+| **[Doki Theme](https://github.com/doki-theme/doki-theme-vim)**    | Anime-inspired theme                   | ⚠️ Disabled   |
 | **[Tokyo Night](https://github.com/folke/tokyonight.nvim)**       | Popular dark theme                    | ✅ Available  |
 | **[Catppuccin](https://github.com/catppuccin/nvim)**              | Pastel theme                          | ✅ Available  |
 | **[Lualine](https://github.com/nvim-lualine/lualine.nvim)**       | Status bar with Pomodoro and WakaTime | ✅ Customized |
@@ -136,6 +137,8 @@ nvim
 | **[Treesitter](https://github.com/nvim-treesitter/nvim-treesitter)** | Syntax highlighting           | 40+ languages         |
 | **[LSP Config](https://github.com/neovim/nvim-lspconfig)**           | Language server configuration | TS, JS, Angular, etc. |
 | **[Conform](https://github.com/stevearc/conform.nvim)**              | Code formatter                | Prettier, etc.        |
+| **[JSON to Types](https://github.com/Redoxahmii/json-to-types.nvim)** | Convert JSON to TypeScript/interfaces | TypeScript      |
+| **[TS Error Translator](https://github.com/dmmulroy/ts-error-translator.nvim)** | Translate TypeScript errors | TypeScript      |
 
 ### 🐛 Debugging and Git
 
@@ -221,6 +224,9 @@ K             - Show hover information
 <leader>sy    - Yank selected icon
 <C-i>         - Insert icon (insert mode)
 <leader>uc    - Toggle colorscheme
+<leader>mp    - Markdown preview
+<leader>cU    - Convert JSON to TypeScript
+<leader>ct    - Convert JSON to TypeScript (buffer)
 ```
 
 ### 🤖 Lazygit + OpenCode AI
@@ -377,9 +383,9 @@ Ctrl+G        - 🤖 Interactive commit with confirmation
 ### 🌈 Change Theme
 
 ```vim
+:colorscheme c_viper       " C. Viper (default)
 :colorscheme tokyonight    " Tokyo Night
 :colorscheme catppuccin    " Catppuccin
-:colorscheme doki-theme    " Essex (default)
 ```
 
 ### 🔧 Enable Bufferline

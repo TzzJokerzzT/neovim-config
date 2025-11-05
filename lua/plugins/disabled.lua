@@ -10,4 +10,9 @@ return {
     "Exafunction/windsurf.nvim",
     enabled = false,
   },
+
+  {
+    "sphamba/smear-cursor.nvim",
+    enabled = false,
+  },
 }
