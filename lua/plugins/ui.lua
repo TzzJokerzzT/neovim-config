@@ -164,6 +164,18 @@ return {
           },
         },
         lualine_x = {
+          function()
+            return require("triforce.lualine").level()
+          end,
+          function()
+            return require("triforce.lualine").streak()
+          end,
+          function()
+            return require("triforce.lualine").session_time()
+          end,
+          function()
+            return require("triforce.lualine").achievements()
+          end,
           {
             pomodoro_status,
             icon = "",

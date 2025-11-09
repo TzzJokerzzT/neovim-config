@@ -25,7 +25,7 @@
 
 ### 🌟 Highlights
 
-- **🎨 Essex Theme (Doki Theme)** - Anime-inspired with full support
+- **🎨 C. Viper Custom Theme** - Custom colorscheme inspired by Street Fighter
 - **🤖 Multiple AI Integration** - Copilot, CodeCompanion, Avante, Claude, OpenCode commits
 - **🍅 Integrated Pomodoro Timer** - Complete productivity system with Lualine
 - **⚡ 50+ Optimized Plugins** - Smart lazy loading, startup < 50ms
@@ -93,7 +93,8 @@ nvim
 
 | Plugin                                                            | Description                           | Status        |
 | ----------------------------------------------------------------- | ------------------------------------- | ------------- |
-| **[Doki Theme](https://github.com/doki-theme/doki-theme-vim)**    | Anime-inspired theme (default)        | ✅ Active     |
+| **[C. Viper](lua/c_viper/)**                                     | Street Fighter custom theme (default) | ✅ Active     |
+| **[Doki Theme](https://github.com/doki-theme/doki-theme-vim)**    | Anime-inspired theme                   | ⚠️ Disabled   |
 | **[Tokyo Night](https://github.com/folke/tokyonight.nvim)**       | Popular dark theme                    | ✅ Available  |
 | **[Catppuccin](https://github.com/catppuccin/nvim)**              | Pastel theme                          | ✅ Available  |
 | **[Lualine](https://github.com/nvim-lualine/lualine.nvim)**       | Status bar with Pomodoro and WakaTime | ✅ Customized |
@@ -125,6 +126,8 @@ nvim
 | ------------------ | ---------------------------------- | ------------------------------ |
 | **Pomodoro Timer** | Complete work→standby→break system | `<leader>ps`, `:PomodoroStart` |
 | **WakaTime**       | Coding time tracking               | Automatic in Lualine           |
+| **Triforce**       | Gamification system with XP and levels | `<leader>tp`                  |
+| **Retrospect**     | Advanced session management        | `<leader>rp`, `<leader><C-r>`  |
 | **ToggleTerm**     | Floating integrated terminal       | `<C-e>`                        |
 | **Which-key**      | Keyboard shortcut help             | Automatic                      |
 
@@ -136,6 +139,10 @@ nvim
 | **[Treesitter](https://github.com/nvim-treesitter/nvim-treesitter)** | Syntax highlighting           | 40+ languages         |
 | **[LSP Config](https://github.com/neovim/nvim-lspconfig)**           | Language server configuration | TS, JS, Angular, etc. |
 | **[Conform](https://github.com/stevearc/conform.nvim)**              | Code formatter                | Prettier, etc.        |
+| **[JSON to Types](https://github.com/Redoxahmii/json-to-types.nvim)** | Convert JSON to TypeScript/interfaces | TypeScript      |
+| **[TS Error Translator](https://github.com/dmmulroy/ts-error-translator.nvim)** | Translate TypeScript errors | TypeScript      |
+| **[Blink.indent](https://github.com/saghen/blink.indent)**           | Smart indentation guides       | Automatic             |
+| **[Markview](https://github.com/OXY2DEV/markview.nvim)**             | Real-time Markdown preview     | Automatic             |
 
 ### 🐛 Debugging and Git
 
@@ -221,6 +228,22 @@ K             - Show hover information
 <leader>sy    - Yank selected icon
 <C-i>         - Insert icon (insert mode)
 <leader>uc    - Toggle colorscheme
+<leader>mp    - Markdown preview
+<leader>cU    - Convert JSON to TypeScript
+<leader>ct    - Convert JSON to TypeScript (buffer)
+```
+
+### 🎮 Gamification System (Triforce)
+
+```
+<leader>tp    - View gamification profile (level, XP, achievements)
+```
+
+### 💾 Session Management (Retrospect)
+
+```
+<leader>rp    - Save current session
+<leader><C-r> - Load saved session
 ```
 
 ### 🤖 Lazygit + OpenCode AI
@@ -377,9 +400,9 @@ Ctrl+G        - 🤖 Interactive commit with confirmation
 ### 🌈 Change Theme
 
 ```vim
+:colorscheme c_viper       " C. Viper (default)
 :colorscheme tokyonight    " Tokyo Night
 :colorscheme catppuccin    " Catppuccin
-:colorscheme doki-theme    " Essex (default)
 ```
 
 ### 🔧 Enable Bufferline
@@ -400,7 +423,7 @@ Configuration includes:
 - **Section B**: Git branch + diff
 - **Section C**: Filename + diagnostics
 - **Section X**: Filetype + encoding
-- **Section Y**: Pomodoro timer + WakaTime
+- **Section Y**: Pomodoro timer + WakaTime + Triforce (level, streak, session time, achievements)
 - **Section Z**: Location + progress
 
 ### 🔔 Configure Notifications
@@ -417,6 +440,56 @@ Configuration includes:
     signature = { enabled = false },
   },
 }
+```
+
+## 🎮 Gamification System (Triforce)
+
+### 🎯 Features
+
+- **XP and Level System**: Earn experience by writing code
+- **Unlockable Achievements**: Specific goals by language and activity
+- **Coding Streaks**: Maintain daily consistency
+- **Session Time**: Track active coding time
+- **Notifications**: Alerts when leveling up or unlocking achievements
+- **Lualine Integration**: Statistics visible in status bar
+
+### 🏆 Reward System
+
+| Activity | XP Earned | Description |
+|----------|-----------|-------------|
+| **Characters** | 1 XP per character | Experience from writing code |
+| **New Lines** | 1 XP per line | Bonus for creating new lines |
+| **Save File** | 50 XP | Reward for saving changes |
+
+### 📊 Level Progression
+
+- **Tier 1** (Levels 1-10): 300 XP per level
+- **Tier 2** (Levels 11-20): 500 XP per level  
+- **Tier 3** (Levels 21+): 1000 XP per level
+
+### 🎮 Commands
+
+```vim
+:Triforce profile    " View complete statistics
+:Triforce reset      " Reset progress (careful!)
+```
+
+## 💾 Session Management (Retrospect)
+
+### 🎯 Features
+
+- **Smart Sessions**: Saves complete state of buffers and windows
+- **Quick Loading**: Restores your work environment instantly
+- **Optional Auto-save**: Automatically saves when writing files
+- **Project Management**: Separate sessions per directory
+
+### 📝 Commands
+
+```vim
+:RetrospectSave [name]    " Save session with optional name
+:RetrospectLoad [name]    " Load specific session
+:RetrospectList          " List available sessions
+:RetrospectDelete [name]  " Delete specific session
 ```
 
 ## 📊 Monitoring and Productivity
@@ -441,6 +514,8 @@ Configuration includes:
 
 - **Real-time coding time**
 - **Visual Pomodoro progress**
+- **Gamification system** with levels and achievements
+- **Daily coding streaks**
 - **Completed sessions** per day
 - **Most worked files and projects**
 
@@ -450,6 +525,8 @@ Using Snacks.nvim dashboard with:
 
 - **Recent files**
 - **WakaTime statistics**
+- **Gamification progress** (level, XP, achievements)
+- **Saved sessions** (Retrospect)
 - **Quick project access**
 - **System information**
 

@@ -63,3 +63,6 @@ map("n", "<leader>ds", "ds", { desc = "Remove wrapper" })
 
 -- Optional: Change wrapper from one delimiter to another
 map("n", "<leader>cs", "cs", { desc = "Change wrapper" })
+
+-- Markdown preview keymap
+vim.api.nvim_set_keymap("n", "<leader>mp", ":MarkdownPreview<CR>", { noremap = true, silent = true })
