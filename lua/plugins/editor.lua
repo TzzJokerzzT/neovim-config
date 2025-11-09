@@ -303,4 +303,10 @@ return {
 
   -- Typescript-Error-Translator
   { "dmmulroy/ts-error-translator.nvim" },
+
+  -- Markdown previewer
+  {
+    "OXY2DEV/markview.nvim",
+    lazy = false,
+  },
 }
