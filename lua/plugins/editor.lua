@@ -309,4 +309,12 @@ return {
     "OXY2DEV/markview.nvim",
     lazy = false,
   },
+
+  -- Console Log
+  {
+    "chriswritescode-dev/consolelog.nvim",
+    config = function()
+      require("consolelog").setup()
+    end,
+  },
 }
