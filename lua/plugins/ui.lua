@@ -1,17 +1,53 @@
+-- lualine
+local timer = vim.loop.new_timer()
+local cached_time = "0m"
+
+local function update_wakatime()
+  local handle = io.popen("wakatime --today 2>/dev/null")
+  if handle then
+    local result = handle:read("*a")
+    handle:close()
+    if result and result ~= "" then
+      cached_time = result:gsub("\n", ""):gsub("hours?", "h"):gsub("minutes?", "m")
+    end
+  end
+end
+
+-- Actualiza cada 5 minutos (300,000 ms)
+timer:start(0, 300000, vim.schedule_wrap(update_wakatime))
+
+-- Función para lualine
+local function wakatime_status()
+  return cached_time
+end
+
+-- Pomodoro Timer
+local pomodoro = require("lib.pomodoro")
+
+-- Setup Pomodoro
+pomodoro.setup()
+
+-- Función para mostrar el estado del Pomodoro en lualine
+local function pomodoro_status()
+  return pomodoro.get_status()
+end
+
 vim.api.nvim_set_hl(0, "SnacksDashboardHeader", { fg = "#bbc443", bold = true })
 
 return {
-  "folke/snacks.nvim",
-  opts = {
+  {
+    -- Dashboard
+    "folke/snacks.nvim",
+    opts = {
 
-    dashboard = {
-      sections = {
-        { section = "header" },
-        { icon = " ", title = "Keymaps", section = "keys", indent = 2, padding = 1 },
-        { section = "startup" },
-      },
-      preset = {
-        header = [[
+      dashboard = {
+        sections = {
+          { section = "header" },
+          { icon = " ", title = "Keymaps", section = "keys", indent = 2, padding = 1 },
+          { section = "startup" },
+        },
+        preset = {
+          header = [[
 ⣿⣿⣿⣿⣿⣿⣿⣿⡈⠀⢥⣄⣀⠈⠉⠛⡻⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
 ⣿⣿⣿⣿⣿⣿⣿⣿⣷⣄⢀⠙⣿⣿⣷⣶⣌⡐⠌⠻⢿⣿⣿⣿⣿⣿⣿⣿⢿⠿⠿⣿⣿⡿⠛⠛⠋⠉⢀⠀⠉⠛⠿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
 ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣦⠁⠘⣿⢿⣿⣿⣿⣦⣌⠀⠨⠙⠩⣭⣵⣶⣶⣿⣿⣷⣶⠖⢂⣠⡴⠞⠛⣉⣉⣁⣀⣀⣀⡉⠩⠭⢁⣀⠀⢀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
@@ -103,7 +139,147 @@ return {
             action = ":qa",
           },
         },
+        },
       },
+    },
+  },
+
+  {
+    -- Lualine
+    "nvim-lualine/lualine.nvim",
+    event = "VeryLazy", -- Load this plugin on the 'VeryLazy' event
+    requires = { "nvim-tree/nvim-web-devicons", opt = true }, -- Optional dependency for icons
+    opts = {
+      options = {
+        theme = "iceberg_dark", -- Set the theme for lualine
+        icons_enabled = true, -- Enable icons in the statusline
+        section_separators = { left = "", right = "" },
+        component_separators = { left = "", right = "" },
+      },
+      sections = {
+        lualine_a = {
+          {
+            "mode", -- Display the current mode
+            icon = "󰞇", -- Set the icon for the mode
+          },
+        },
+        lualine_x = {
+          function()
+            return require("triforce.lualine").level()
+          end,
+          function()
+            return require("triforce.lualine").streak()
+          end,
+          function()
+            return require("triforce.lualine").session_time()
+          end,
+          function()
+            return require("triforce.lualine").achievements()
+          end,
+          {
+            pomodoro_status,
+            icon = "",
+            color = function()
+              local status = pomodoro.get_status()
+              if status:find("WORK") then
+                return { fg = "#ff6b6b" } -- Red for work time
+              elseif status:find("BREAK") then
+                return { fg = "#51cf66" } -- Green for break time
+              elseif status:find("STANDBY") then
+                return { fg = "#ffd43b" } -- Yellow for standby
+              else
+                return { fg = "#74c0fc" } -- Blue for idle
+              end
+            end,
+          },
+          { wakatime_status, icon = "⏱️" },
+          "filetype",
+        },
+      },
+    },
+  },
+
+  {
+    -- Noice
+    "folke/noice.nvim",
+    config = function()
+      require("noice").setup({
+        cmdline = {
+          view = "cmdline", -- Use the cmdline view for the command-line
+        },
+        presets = {
+          bottom_search = true, -- Enable bottom search view
+          command_palette = true, -- Enable command palette view
+          lsp_doc_border = true, -- Enable LSP documentation border
+        },
+        -- Uncomment the following lines to customize the cmdline popup view
+        -- views = {
+        --   cmdline_popup = {
+        --     filter_options = {},
+        --     win_options = {
+        --       winhighlight = "NormalFloat:NormalFloat,FloatBorder:FloatBorder",
+        --     },
+        --   },
+        -- },
+      })
+    end,
+  },
+
+  {
+    -- Incline
+    "b0o/incline.nvim",
+    event = "BufReadPre", -- Load this plugin before reading a buffer
+    priority = 1200, -- Set the priority for loading this plugin
+    config = function()
+      require("incline").setup({
+        window = {
+          margin = { vertical = 0, horizontal = 1 },
+          winhighlight = {
+            -- Eliminar el fondo de la ventana
+            Normal = "", -- Fondo normal
+            NormalNC = "", -- Fondo normal para ventanas no actuales
+          },
+        }, -- Set the window margin
+        hide = {
+          cursorline = true, -- Hide the incline window when the cursorline is active
+        },
+        render = function(props)
+          local filename = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(props.buf), ":t") -- Get the filename
+          if vim.bo[props.buf].modified then
+            filename = "[+] " .. filename -- Indicate if the file is modified
+          end
+
+          local icon, color = require("nvim-web-devicons").get_icon_color(filename) -- Get the icon and color for the file
+          return { { icon, guifg = color }, { " " }, { filename } } -- Return the rendered content
+        end,
+      })
+    end,
+  },
+
+  {
+    "sphamba/smear-cursor.nvim",
+    opts = {
+      -- Smear cursor when switching buffers or windows.
+      smear_between_buffers = true,
+
+      -- Smear cursor when moving within line or to neighbor lines.
+      -- Use `min_horizontal_distance_smear` and `min_vertical_distance_smear` for finer control
+      smear_between_neighbor_lines = true,
+
+      -- Draw the smear in buffer space instead of screen space when scrolling
+      scroll_buffer_space = true,
+
+      -- Set to `true` if your font supports legacy computing symbols (block unicode symbols).
+      -- Smears will blend better on all backgrounds.
+      legacy_computing_symbols_support = true,
+
+      -- Smear cursor in insert mode.
+      -- See also `vertical_bar_cursor_insert_mode` and `distance_stop_animating_vertical_bar`.
+      smear_insert_mode = true,
+
+      transparent_bg_fallback_color = "#303030",
+
+      cursor_color = "#303030",
     },
   },
 }

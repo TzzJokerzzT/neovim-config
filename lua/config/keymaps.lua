@@ -23,17 +23,12 @@ function SaveFile()
   end
 end
 
-vim.api.nvim_set_keymap("n", "<leader>tg", "<cmd>lua _LAZYGIT_TOGGLE()<CR>", { noremap = true, silent = true })
-
 local map = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
 
 -- Shades and Huefy keymaps
 map("n", "<leader>ms", ":Shades<CR>", opts)
 map("n", "<leader>mh", ":Huefy<CR>", opts)
-
---Oil keymaps
-vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 
 -- Delete all buffers but the current one
 vim.keymap.set(
@@ -56,27 +51,12 @@ vim.api.nvim_set_keymap("i", "<C-v>", '<C-o>"+p', { noremap = true, silent = tru
 vim.keymap.set("i", "<A-j>", "<Esc>:m .+1<CR>==gi", { noremap = true, silent = true })
 vim.keymap.set("i", "<A-k>", "<Esc>:m .-2<CR>==gi", { noremap = true, silent = true })
 
--- Obsidian
-vim.keymap.set(
-  "n",
-  "<leader>oc",
-  "<cmd>lua require('obsidian').util.toggle_checkbox()<CR>",
-  { desc = "Obsidian Check Checkbox" }
-)
-vim.keymap.set("n", "<leader>ot", "<cmd>ObsidianTemplate<CR>", { desc = "Insert Obsidian Template" })
-vim.keymap.set("n", "<leader>oo", "<cmd>ObsidianOpen<CR>", { desc = "Open in Obsidian App" })
-vim.keymap.set("n", "<leader>ob", "<cmd>ObsidianBacklinks<CR>", { desc = "Show ObsidianBacklinks" })
-vim.keymap.set("n", "<leader>ol", "<cmd>ObsidianLinks<CR>", { desc = "Show ObsidianLinks" })
-vim.keymap.set("n", "<leader>on", "<cmd>ObsidianNew<CR>", { desc = "Create New Note" })
-vim.keymap.set("n", "<leader>os", "<cmd>ObsidianSearch<CR>", { desc = "Search Obsidian" })
-vim.keymap.set("n", "<leader>oq", "<cmd>ObsidianQuickSwitch<CR>", { desc = "Quick Switch" })
-
-map("v", "<leader>'", "S'", { desc = "Wrap with single quotes" })
-map("v", '<leader>"', 'S"', { desc = "Wrap with double quotes" })
-map("v", "<leader>(", "S(", { desc = "Wrap with parentheses" })
-map("v", "<leader>{", "S{", { desc = "Wrap with curly braces" })
-map("v", "<leader>[", "S[", { desc = "Wrap with square brackets" })
-map("v", "<leader><", "S<", { desc = "Wrap with angle brackets" })
+map("v", "<leader>'", "gS'", { desc = "Wrap with single quotes" })
+map("v", '<leader>"', 'gS"', { desc = "Wrap with double quotes" })
+map("v", "<leader>(", "gS(", { desc = "Wrap with parentheses" })
+map("v", "<leader>{", "gS{", { desc = "Wrap with curly braces" })
+map("v", "<leader>[", "gS[", { desc = "Wrap with square brackets" })
+map("v", "<leader><", "gS<", { desc = "Wrap with angle brackets" })
 
 -- Optional: Easily remove wrappers
 map("n", "<leader>ds", "ds", { desc = "Remove wrapper" })
@@ -84,17 +64,5 @@ map("n", "<leader>ds", "ds", { desc = "Remove wrapper" })
 -- Optional: Change wrapper from one delimiter to another
 map("n", "<leader>cs", "cs", { desc = "Change wrapper" })
 
--- Copilot Chat keymaps
--- vim.keymap.set("n", "<leader>ac", ":CopilotChat<CR>", { desc = "Open Copilot Chat" })
--- vim.keymap.set("v", "<leader>ac", ":CopilotChatOpen<CR>", { desc = "Open Copilot Chat" })
--- vim.keymap.set("n", "<leader>ap", ":CopilotChatPrompt<CR>", { desc = "View Prompt Template" })
--- vim.keymap.set("n", "<leader>ae", ":CopilotChatExplain<CR>", { desc = "Explain selected code" })
--- vim.keymap.set("n", "<leader>ad", ":CopilotChatDocstring<CR>", { desc = "Generate docstring" })
--- vim.keymap.set("v", "<leader>ao", ":CopilotChatOptimize<CR>", { desc = "Optimize selected code" })
--- vim.keymap.set("n", "<leader>at", ":CopilotChatTests<CR>", { desc = "Generate unit tests" })
--- vim.keymap.set("n", "<leader>af", ":CopilotChatFix<CR>", { desc = "Fix selected code" })
--- vim.keymap.set("n", "<leader>ar", ":CopilotChatRefactor<CR>", { desc = "Refactor selected code" })
--- vim.keymap.set("v", "<leader>ar", ":CopilotChatRefactor<CR>", { desc = "Refactor selected code" })
--- vim.keymap.set("n", "<leader>am", ":CopilotChatModels<CR>", { desc = "Select Available Models" })
--- vim.keymap.set("n", "<leader>at", ":CopilotChatToggle<CR>", { desc = "Toggle Chat Windows" })
--- vim.keymap.set("n", "<leader>aq", ":CopilotChatClose<CR>", { desc = "Close Chat Window" })
+-- Markdown preview keymap
+vim.api.nvim_set_keymap("n", "<leader>mp", ":MarkdownPreview<CR>", { noremap = true, silent = true })
