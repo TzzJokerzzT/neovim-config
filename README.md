@@ -94,13 +94,14 @@ nvim
 | Plugin                                                            | Descripción                             | Estado           |
 | ----------------------------------------------------------------- | --------------------------------------- | ---------------- |
 | **[C. Viper](lua/c_viper/)**                                     | Tema personalizado Street Fighter (por defecto) | ✅ Activo        |
-| **[Doki Theme](https://github.com/doki-theme/doki-theme-vim)**    | Temas inspirado en anime                 | ⚠️ Deshabilitado |
 | **[Tokyo Night](https://github.com/folke/tokyonight.nvim)**       | Tema oscuro popular                     | ✅ Disponible    |
 | **[Catppuccin](https://github.com/catppuccin/nvim)**              | Tema pastel                             | ✅ Disponible    |
-| **[Lualine](https://github.com/nvim-lualine/lualine.nvim)**       | Barra de estado con Pomodoro y WakaTime | ✅ Personalizada |
-| **[Bufferline](https://github.com/akinsho/bufferline.nvim)**      | Pestañas de buffer elegantes            | ⚠️ Deshabilitado |
+| **[Lualine](https://github.com/nvim-lualine/lualine.nvim)**       | Barra de estado con Pomodoro, WakaTime y Triforce | ✅ Personalizada |
 | **[Noice](https://github.com/folke/noice.nvim)**                  | UI mejorada para mensajes               | ✅ Activo        |
 | **[Icon Picker](https://github.com/ziontee113/icon-picker.nvim)** | Selector de iconos y emojis             | ✅ Activo        |
+| **[Incline](https://github.com/b0o/incline.nvim)**                | Títulos de ventana ligeros y sin fondo  | ✅ Activo        |
+| **[Smear Cursor](https://github.com/sphamba/smear-cursor.nvim)**  | Animación de cursor fluida              | ✅ Activo        |
+| **[Snacks.nvim](https://github.com/folke/snacks.nvim)**           | Dashboard personalizado con secciones   | ✅ Activo        |
 
 ### 🤖 AI y Completado
 
@@ -422,8 +423,8 @@ La configuración incluye:
 - **Sección A**: Modo vim
 - **Sección B**: Branch git + diff
 - **Sección C**: Filename + diagnostics
-- **Sección X**: Filetype + encoding
-- **Sección Y**: Pomodoro timer + WakaTime + Triforce (nivel, racha, tiempo de sesión, logros)
+- **Sección X**: Filetype + encoding + Triforce (nivel, racha, tiempo de sesión, logros)
+- **Sección Y**: Pomodoro timer + WakaTime
 - **Sección Z**: Location + progress
 
 ### 🔔 Configurar Notificaciones
@@ -521,13 +522,15 @@ La configuración incluye:
 
 ### 🎯 Dashboard Personalizado
 
-Usando Snacks.nvim dashboard con:
+Usando `Snacks.nvim` con secciones de:
 
+- **Header** con arte ASCII
+- **Keymaps** destacados
+- **Startup** y accesos rápidos
 - **Archivos recientes**
 - **Estadísticas de WakaTime**
 - **Progreso de gamificación** (nivel, XP, logros)
 - **Sesiones guardadas** (Retrospect)
-- **Accesos rápidos** a proyectos
 - **Información del sistema**
 
 ## 🚀 Comenzar
