@@ -18,6 +18,11 @@ return {
 
   {
     "stevearc/oil.nvim",
+    enabled = true,
+  },
+
+  {
+    "A7Lavinraj/fyler.nvim",
     enabled = false,
   },
 }
