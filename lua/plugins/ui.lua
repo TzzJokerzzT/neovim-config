@@ -1,6 +1,8 @@
--- lualine
-local timer = vim.loop.new_timer()
+-- Lazy load wakatime and pomodoro
+local timer = nil
 local cached_time = "0m"
+local pomodoro = nil
+local pomodoro_loaded = false
 
 local function update_wakatime()
   local handle = io.popen("wakatime --today 2>/dev/null")
@@ -13,22 +15,27 @@ local function update_wakatime()
   end
 end
 
--- Actualiza cada 5 minutos (300,000 ms)
-timer:start(0, 300000, vim.schedule_wrap(update_wakatime))
-
--- Función para lualine
+-- Función para lualine - lazy init wakatime
 local function wakatime_status()
+  if not timer then
+    timer = vim.loop.new_timer()
+    timer:start(0, 300000, vim.schedule_wrap(update_wakatime))
+  end
   return cached_time
 end
 
--- Pomodoro Timer
-local pomodoro = require("lib.pomodoro")
-
--- Setup Pomodoro
-pomodoro.setup()
+-- Lazy load pomodoro only when needed
+local function ensure_pomodoro_loaded()
+  if not pomodoro_loaded then
+    pomodoro = require("lib.pomodoro")
+    pomodoro.setup()
+    pomodoro_loaded = true
+  end
+end
 
 -- Función para mostrar el estado del Pomodoro en lualine
 local function pomodoro_status()
+  ensure_pomodoro_loaded()
   return pomodoro.get_status()
 end
 
@@ -36,7 +43,7 @@ vim.api.nvim_set_hl(0, "SnacksDashboardHeader", { fg = "#bbc443", bold = true })
 
 return {
   {
-    -- Dashboard
+      -- Dashboard
     "folke/snacks.nvim",
     opts = {
 
@@ -180,6 +187,8 @@ return {
             pomodoro_status,
             icon = "",
             color = function()
+              -- Ensure pomodoro is loaded before accessing it
+              ensure_pomodoro_loaded()
               local status = pomodoro.get_status()
               if status:find("WORK") then
                 return { fg = "#ff6b6b" } -- Red for work time
@@ -258,6 +267,7 @@ return {
 
   {
     "sphamba/smear-cursor.nvim",
+    event = "VeryLazy", -- Load after UI is ready
     opts = {
       -- Smear cursor when switching buffers or windows.
       smear_between_buffers = true,
@@ -286,6 +296,7 @@ return {
   --Triforce
   {
     "gisketch/triforce.nvim",
+    event = "VeryLazy", -- Load after startup
     dependencies = {
       "nvzone/volt",
     },
@@ -309,10 +320,10 @@ return {
         -- Auto-save interval (in seconds)
         auto_save_interval = 300, -- Save stats every 5 minutes
 
-        -- Add custom language support
+        -- -- Add custom language support
         custom_languages = {
-          gleam = { icon = "✨", name = "Gleam" },
-          odin = { icon = "🔷", name = "Odin" },
+          javascript = { icon = "✨", name = "Javascript" },
+          typescript = { icon = "🔷", name = "Typescript" },
           -- Add more languages...
         },
 

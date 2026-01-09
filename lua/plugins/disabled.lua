@@ -25,4 +25,10 @@ return {
     "A7Lavinraj/fyler.nvim",
     enabled = false,
   },
+
+  { "mfussenegger/nvim-dap", enabled = false },
+
+  { "kylechui/nvim-surround", enabled = true },
+
+  { "saghen/blink.indent", enabled = false },
 }

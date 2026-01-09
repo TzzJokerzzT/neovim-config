@@ -2,7 +2,7 @@ return {
   {
     -- Goto-preview
     "rmagatti/goto-preview",
-    event = "BufEnter", -- Load the plugin when a buffer is entered
+    event = "LspAttach", -- Load only when LSP attaches
     config = true, -- Enable default configuration
     keys = {
       {
@@ -47,6 +47,7 @@ return {
   {
     -- Highlight colors
     "brenoprata10/nvim-highlight-colors",
+    event = "BufReadPost", -- Load after reading file
     config = function()
       require("nvim-highlight-colors").setup({
         render = "background", -- Puede ser 'background', 'foreground', o 'first_column'
@@ -282,8 +283,8 @@ return {
     },
   },
 
-  -- Json-To-Ts
   {
+    -- Json-To-Ts
     "Redoxahmii/json-to-types.nvim",
     build = "sh install.sh bun", -- Replace `npm` with your preferred package manager (e.g., yarn, pnpm).
     ft = "json",
@@ -301,18 +302,24 @@ return {
     },
   },
 
-  -- Typescript-Error-Translator
-  { "dmmulroy/ts-error-translator.nvim" },
-
-  -- Markdown previewer
   {
-    "OXY2DEV/markview.nvim",
-    lazy = false,
+    -- Typescript-Error-Translator
+    "dmmulroy/ts-error-translator.nvim",
   },
 
-  -- Console Log
   {
+    -- Markdown previewer
+    "OXY2DEV/markview.nvim",
+    ft = "markdown", -- Load only for markdown files
+  },
+
+  {
+    -- Console Log
     "chriswritescode-dev/consolelog.nvim",
+    keys = {
+      { "<leader>cl", desc = "Console Log" },
+    },
+    cmd = { "ConsoleLog", "ConsoleLogClear" },
     config = function()
       require("consolelog").setup()
     end,
