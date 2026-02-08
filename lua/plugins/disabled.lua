@@ -31,4 +31,9 @@ return {
   { "kylechui/nvim-surround", enabled = true },
 
   { "saghen/blink.indent", enabled = false },
+
+  {
+    "folke/sidekick.nvim",
+    enabled = false,
+  },
 }

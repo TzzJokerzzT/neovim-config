@@ -66,3 +66,23 @@ map("n", "<leader>cs", "cs", { desc = "Change wrapper" })
 
 -- Markdown preview keymap
 vim.api.nvim_set_keymap("n", "<leader>mp", ":MarkdownPreview<CR>", { noremap = true, silent = true })
+
+-- Git commit scripts with AI
+vim.keymap.set("n", "<leader>gc", function()
+  vim.cmd("!~/.config/nvim/scripts/generate-commit.sh")
+end, { desc = "Git Commit con IA (Recommended)" })
+
+vim.keymap.set("n", "<leader>gC", function()
+  vim.cmd("!~/.config/nvim/scripts/lazygit-commit.sh")
+end, { desc = "Git Commit automático con IA" })
+
+vim.keymap.set("n", "<leader>gm", function()
+  local handle = io.popen("~/.config/nvim/scripts/opencode-commit-msg.sh")
+  if handle then
+    local result = handle:read("*a")
+    handle:close()
+    result = result:gsub("^%s*(.-)%s*$", "%1") -- trim whitespace
+    vim.fn.setreg("+", result)
+    vim.notify("Mensaje copiado al portapapeles: " .. result, vim.log.levels.INFO)
+  end
+end, { desc = "Generar mensaje de commit (solo copiar)" })
