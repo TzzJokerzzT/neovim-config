@@ -1,6 +1,8 @@
--- lualine
-local timer = vim.loop.new_timer()
+-- Lazy load wakatime and pomodoro
+local timer = nil
 local cached_time = "0m"
+local pomodoro = nil
+local pomodoro_loaded = false
 
 local function update_wakatime()
   local handle = io.popen("wakatime --today 2>/dev/null")
@@ -13,22 +15,27 @@ local function update_wakatime()
   end
 end
 
--- Actualiza cada 5 minutos (300,000 ms)
-timer:start(0, 300000, vim.schedule_wrap(update_wakatime))
-
--- Función para lualine
+-- Función para lualine - lazy init wakatime
 local function wakatime_status()
+  if not timer then
+    timer = vim.loop.new_timer()
+    timer:start(0, 300000, vim.schedule_wrap(update_wakatime))
+  end
   return cached_time
 end
 
--- Pomodoro Timer
-local pomodoro = require("lib.pomodoro")
-
--- Setup Pomodoro
-pomodoro.setup()
+-- Lazy load pomodoro only when needed
+local function ensure_pomodoro_loaded()
+  if not pomodoro_loaded then
+    pomodoro = require("lib.pomodoro")
+    pomodoro.setup()
+    pomodoro_loaded = true
+  end
+end
 
 -- Función para mostrar el estado del Pomodoro en lualine
 local function pomodoro_status()
+  ensure_pomodoro_loaded()
   return pomodoro.get_status()
 end
 
@@ -36,7 +43,7 @@ vim.api.nvim_set_hl(0, "SnacksDashboardHeader", { fg = "#bbc443", bold = true })
 
 return {
   {
-    -- Dashboard
+      -- Dashboard
     "folke/snacks.nvim",
     opts = {
 
@@ -180,6 +187,8 @@ return {
             pomodoro_status,
             icon = "",
             color = function()
+              -- Ensure pomodoro is loaded before accessing it
+              ensure_pomodoro_loaded()
               local status = pomodoro.get_status()
               if status:find("WORK") then
                 return { fg = "#ff6b6b" } -- Red for work time
@@ -258,6 +267,7 @@ return {
 
   {
     "sphamba/smear-cursor.nvim",
+    event = "VeryLazy", -- Load after UI is ready
     opts = {
       -- Smear cursor when switching buffers or windows.
       smear_between_buffers = true,
@@ -270,8 +280,8 @@ return {
       scroll_buffer_space = true,
 
       -- Set to `true` if your font supports legacy computing symbols (block unicode symbols).
-      -- Smears will blend better on all backgrounds.
-      legacy_computing_symbols_support = true,
+      -- Smears and particles will look a lot less blocky.
+      legacy_computing_symbols_support = false,
 
       -- Smear cursor in insert mode.
       -- See also `vertical_bar_cursor_insert_mode` and `distance_stop_animating_vertical_bar`.
@@ -281,5 +291,56 @@ return {
 
       cursor_color = "#303030",
     },
+  },
+
+  --Triforce
+  {
+    "gisketch/triforce.nvim",
+    event = "VeryLazy", -- Load after startup
+    dependencies = {
+      "nvzone/volt",
+    },
+    config = function()
+      require("triforce").setup({
+        enabled = true, -- Enable/disable the entire plugin
+        gamification_enabled = true, -- Enable XP, levels, achievements
+
+        -- Notification settings
+        notifications = {
+          enabled = true, -- Master toggle for all notifications
+          level_up = true, -- Show level up notifications
+          achievements = true, -- Show achievement unlock notifications
+        },
+
+        -- Keymap configuration
+        keymap = {
+          show_profile = "<leader>tp", -- Set to nil to disable default keymap
+        },
+
+        -- Auto-save interval (in seconds)
+        auto_save_interval = 300, -- Save stats every 5 minutes
+
+        -- -- Add custom language support
+        custom_languages = {
+          javascript = { icon = "✨", name = "Javascript" },
+          typescript = { icon = "🔷", name = "Typescript" },
+          -- Add more languages...
+        },
+
+        -- Customize level progression (optional)
+        level_progression = {
+          tier_1 = { min_level = 1, max_level = 10, xp_per_level = 300 }, -- Levels 1-10
+          tier_2 = { min_level = 11, max_level = 20, xp_per_level = 500 }, -- Levels 11-20
+          tier_3 = { min_level = 21, max_level = math.huge, xp_per_level = 1000 }, -- Levels 21+
+        },
+
+        -- Customize XP rewards (optional)
+        xp_rewards = {
+          char = 1, -- XP per character typed
+          line = 1, -- XP per new line
+          save = 50, -- XP per file save
+        },
+      })
+    end,
   },
 }

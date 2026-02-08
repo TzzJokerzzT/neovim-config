@@ -2,6 +2,11 @@ return {
   {
     "akinsho/toggleterm.nvim",
     version = "*",
+    cmd = { "ToggleTerm", "TermExec" }, -- Lazy load on command
+    keys = {
+      { "<C-e>", "<cmd>ToggleTerm<cr>", desc = "Toggle Terminal" },
+      { "<leader>gg", "<cmd>lua _LAZYGIT_TOGGLE()<cr>", desc = "LazyGit" },
+    },
     config = function()
       require("toggleterm").setup({
         -- Configuración básica

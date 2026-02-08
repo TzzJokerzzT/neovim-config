@@ -7,56 +7,6 @@ return {
     -- opts = {},
   },
 
-  --Triforce
-  {
-    "gisketch/triforce.nvim",
-    dependencies = {
-      "nvzone/volt",
-    },
-    config = function()
-      require("triforce").setup({
-        enabled = true, -- Enable/disable the entire plugin
-        gamification_enabled = true, -- Enable XP, levels, achievements
-
-        -- Notification settings
-        notifications = {
-          enabled = true, -- Master toggle for all notifications
-          level_up = true, -- Show level up notifications
-          achievements = true, -- Show achievement unlock notifications
-        },
-
-        -- Keymap configuration
-        keymap = {
-          show_profile = "<leader>tp", -- Set to nil to disable default keymap
-        },
-
-        -- Auto-save interval (in seconds)
-        auto_save_interval = 300, -- Save stats every 5 minutes
-
-        -- Add custom language support
-        custom_languages = {
-          gleam = { icon = "✨", name = "Gleam" },
-          odin = { icon = "🔷", name = "Odin" },
-          -- Add more languages...
-        },
-
-        -- Customize level progression (optional)
-        level_progression = {
-          tier_1 = { min_level = 1, max_level = 10, xp_per_level = 300 }, -- Levels 1-10
-          tier_2 = { min_level = 11, max_level = 20, xp_per_level = 500 }, -- Levels 11-20
-          tier_3 = { min_level = 21, max_level = math.huge, xp_per_level = 1000 }, -- Levels 21+
-        },
-
-        -- Customize XP rewards (optional)
-        xp_rewards = {
-          char = 1, -- XP per character typed
-          line = 1, -- XP per new line
-          save = 50, -- XP per file save
-        },
-      })
-    end,
-  },
-
   --Retrospect
   {
     "mrquantumcodes/retrospect.nvim",
@@ -66,6 +16,93 @@ return {
         load_key = "<leader><C-r>", -- Keybinding to load session (default: <leader><BS>)
         autosave = false, -- Autosave session on every file write (default: false)
       })
+    end,
+  },
+
+  -- Fyler
+  {
+    "A7Lavinraj/fyler.nvim",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    branch = "stable", -- Use stable branch for production
+    lazy = false, -- Necessary for `default_explorer` to work properly
+    keys = {
+      { "-", "<CMD>Fyler kind=float<CR>", desc = "Open Fyler (parent dir)" },
+    },
+    config = function()
+      require("fyler").setup({
+        integrations = {
+          icon = "nvim_web_devicons",
+        },
+        default_file_explorer = true,
+        view = {
+          mappings = {
+            ["q"] = "CloseView",
+            ["<CR>"] = "Select",
+            ["<C-t>"] = "SelectTab",
+            ["|"] = "SelectVSplit",
+            ["-"] = "SelectSplit",
+            ["<BS>"] = "GotoParent",
+            ["="] = "GotoCwd",
+            ["."] = "GotoNode",
+            ["#"] = "CollapseAll",
+            ["<C>"] = "CollapseNode",
+          },
+        },
+      })
+    end,
+  },
+
+  -- Opencode
+  {
+    "NickvanDyke/opencode.nvim",
+    dependencies = {
+      -- Recommended for `ask()` and `select()`.
+      -- Required for `snacks` provider.
+      ---@module 'snacks' <- Loads `snacks.nvim` types for configuration intellisense.
+      { "folke/snacks.nvim", opts = { input = {}, picker = {}, terminal = {} } },
+    },
+    keys = {
+      -- Recommended/example keymaps.
+      vim.keymap.set({ "n", "x" }, "<leader>ak", function()
+        require("opencode").ask("@this: ", { submit = true })
+      end, { desc = "Ask opencode…" }),
+
+      vim.keymap.set({ "n", "x" }, "<C-x>", function()
+        require("opencode").select()
+      end, { desc = "Execute opencode action…" }),
+
+      vim.keymap.set({ "n", "t" }, "<C-.>", function()
+        require("opencode").toggle()
+      end, { desc = "Toggle opencode" }),
+
+      vim.keymap.set({ "n", "x" }, "go", function()
+        return require("opencode").operator("@this ")
+      end, { desc = "Add range to opencode", expr = true }),
+
+      vim.keymap.set("n", "goo", function()
+        return require("opencode").operator("@this ") .. "_"
+      end, { desc = "Add line to opencode", expr = true }),
+
+      vim.keymap.set("n", "<S-C-u>", function()
+        require("opencode").command("session.half.page.up")
+      end, { desc = "Scroll opencode up" }),
+
+      vim.keymap.set("n", "<S-C-d>", function()
+        require("opencode").command("session.half.page.down")
+      end, { desc = "Scroll opencode down" }),
+
+      -- You may want these if you stick with the opinionated "<C-a>" and "<C-x>" above — otherwise consider "<leader>o…".
+      vim.keymap.set("n", "+", "<C-a>", { desc = "Increment under cursor", noremap = true }),
+      vim.keymap.set("n", "-", "<C-x>", { desc = "Decrement under cursor", noremap = true }),
+    },
+
+    config = function()
+      ---@type opencode.Opts
+      vim.g.opencode_opts = {
+        -- Your configuration, if any — see `lua/opencode/config.lua`, or "goto definition" on the type or field.
+      }
+      -- Required for `opts.events.reload`.
+      vim.o.autoread = true
     end,
   },
 }
