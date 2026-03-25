@@ -1,21 +1,39 @@
 return {
-  -- C. Viper Custom Theme
+  -- Cyberpunk 2077 Custom Theme
   {
-    dir = vim.fn.stdpath("config") .. "/lua/c_viper",
-    name = "c_viper",
+    dir = vim.fn.stdpath("config") .. "/lua/cyberpunk_2077",
+    name = "cyberpunk_2077",
     lazy = false,
     priority = 1000,
     config = function()
-      -- Setup the C. Viper colorscheme with transparency
-      require("c_viper").setup({ transparent = true })
+      -- Setup the Cyberpunk 2077 colorscheme
+      require("cyberpunk_2077").setup({ transparent = true })
 
       -- Setup language-specific highlights
-      require("c_viper.languages").setup()
+      require("cyberpunk_2077.languages").setup()
 
       -- Apply the colorscheme
-      vim.cmd("colorscheme c_viper")
+      vim.cmd("colorscheme cyberpunk_2077")
     end,
   },
+
+  -- C. Viper Custom Theme
+  -- {
+  --   dir = vim.fn.stdpath("config") .. "/lua/c_viper",
+  --   name = "c_viper",
+  --   lazy = false,
+  --   priority = 1000,
+  --   config = function()
+  --     -- Setup the C. Viper colorscheme with transparency
+  --     require("c_viper").setup({ transparent = true })
+  --
+  --     -- Setup language-specific highlights
+  --     require("c_viper.languages").setup()
+  --
+  --     -- Apply the colorscheme
+  --     vim.cmd("colorscheme c_viper")
+  --   end,
+  -- },
 
   -- {
   --   "ricardoraposo/nightwolf.nvim",
@@ -78,6 +96,31 @@ return {
   --     -- vim.api.nvim_set_hl(0, "Operator", { italic = true, fg = "#98473b" })
   --     -- vim.api.nvim_set_hl(0, "Directory", { italic = true, fg = "#f2eded" })
   --     -- vim.g.doki_theme_style = "rei" -- Cambia a otro tema
+  --   end,
+  -- },
+
+  -- {
+  --   "nikita-edel/sugarpunk.nvim",
+  --   priority = 1000,
+  --   config = function()
+  --     -- [[ this is optional, if you want to change something, these are the defaults
+  --     require("sugarpunk").setup({
+  --       transparent = true,
+  --       -- transparency = true,
+  --       styles = {
+  --         comments = { italic = true, bold = false },
+  --         keywords = { italic = false, bold = false },
+  --         booleans = { italic = false, bold = false },
+  --         functions = { italic = true, bold = true },
+  --         variables = { italic = false, bold = true },
+  --       },
+  --       -- overrides = {
+  --       --           Normal = { bg = "#123456" },
+  --       --           Macro  = { fg = "#654321" },
+  --       -- },
+  --     })
+  --
+  --     vim.cmd("colorscheme sugarpunk") -- or put this in init.lua
   --   end,
   -- },
 }
