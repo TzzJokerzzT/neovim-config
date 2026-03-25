@@ -107,7 +107,7 @@ return {
 
     keys = {
       { "-", "<CMD>Oil --float<CR>", desc = "Open Oil (floating)" },
-      { "<leader>-", "<CMD>Oil --float<CR>", desc = "Open Oil (floating)" },
+      -- { "<leader>-", "<CMD>Oil --float<CR>", desc = "Open Oil (floating)" },
     },
 
     opts = {
@@ -260,18 +260,18 @@ return {
       })
 
       -- Global keymap to open Oil in current buffer's directory
-      vim.keymap.set("n", "<leader>-", function()
-        local oil = require("oil")
-        local current_buf = vim.api.nvim_get_current_buf()
-        local current_file = vim.api.nvim_buf_get_name(current_buf)
-
-        if current_file and current_file ~= "" then
-          local dir = vim.fn.fnamemodify(current_file, ":h")
-          oil.open(dir)
-        else
-          oil.open()
-        end
-      end, { desc = "Open Oil in current file's directory" })
+      -- vim.keymap.set("n", "<leader>-", function()
+      --   local oil = require("oil")
+      --   local current_buf = vim.api.nvim_get_current_buf()
+      --   local current_file = vim.api.nvim_buf_get_name(current_buf)
+      --
+      --   if current_file and current_file ~= "" then
+      --     local dir = vim.fn.fnamemodify(current_file, ":h")
+      --     oil.open(dir)
+      --   else
+      --     oil.open()
+      --   end
+      -- end, { desc = "Open Oil in current file's directory" })
     end,
   },
 
