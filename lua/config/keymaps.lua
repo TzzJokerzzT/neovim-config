@@ -51,13 +51,6 @@ vim.api.nvim_set_keymap("i", "<C-v>", '<C-o>"+p', { noremap = true, silent = tru
 vim.keymap.set("i", "<A-j>", "<Esc>:m .+1<CR>==gi", { noremap = true, silent = true })
 vim.keymap.set("i", "<A-k>", "<Esc>:m .-2<CR>==gi", { noremap = true, silent = true })
 
-vim.keymap.set("v", "<leader>'", "gsa'", { desc = "Wrap with single quotes" })
-vim.keymap.set("v", '<leader>"', 'gsa"', { desc = "Wrap with double quotes" })
-vim.keymap.set("v", "<leader>(", "gsa(", { desc = "Wrap with parentheses" })
-vim.keymap.set("v", "<leader>{", "gsa{", { desc = "Wrap with curly braces" })
-vim.keymap.set("v", "<leader>[", "gsa[", { desc = "Wrap with square brackets" })
-vim.keymap.set("v", "<leader><", "gsa<", { desc = "Wrap with angle brackets" })
-
 -- Optional: Easily remove wrappers
 vim.keymap.set("n", "<leader>ds", "ds", { desc = "Remove wrapper" })
 
@@ -66,6 +59,17 @@ vim.keymap.set("n", "<leader>cs", "cs", { desc = "Change wrapper" })
 
 -- Markdown preview keymap
 vim.api.nvim_set_keymap("n", "<leader>mp", ":MarkdownPreview<CR>", { noremap = true, silent = true })
+
+-- Window navigation keymaps en cool- retro-term
+vim.keymap.set("n", "<BS>", "<C-w>h", { desc = "Go to Left Window" })
+
+-- Enhanced LSP hover (expands TypeScript interfaces/type aliases)
+vim.keymap.set("n", "<leader>k", function()
+  require("lib.enhanced_hover").hover()
+end, { desc = "Enhanced Hover" })
+
+-- Tailwind Tools keymaps
+vim.keymap.set("n", "<leader>ts", ":TailwindSort<CR>", { desc = "Sort Tailwind Classes" })
 
 -- VSC NEOVIM
 -- VSCode Neovim keymaps (only active when running inside VSCode)

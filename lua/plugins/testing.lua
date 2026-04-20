@@ -91,7 +91,7 @@ return {
             title = " Terminal   ",
             keymap = "<C-e>",
           },
-          claude = {
+          opencode = {
             type = "terminal", -- or "file"
             command = "opencode",
             title = " Opencode   ",
@@ -121,5 +121,21 @@ return {
         },
       })
     end,
+  },
+
+  -- Diffview
+  { "sindrets/diffview.nvim", dependecies = { "nvim-lua/plenary.nvim" } },
+
+  -- Tailwind Tools
+  {
+    "luckasRanarison/tailwind-tools.nvim",
+    name = "tailwind-tools",
+    build = ":UpdateRemotePlugins",
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter",
+      "nvim-telescope/telescope.nvim", -- optional
+      "neovim/nvim-lspconfig", -- optional
+    },
+    opts = {}, -- your configuration
   },
 }

@@ -66,6 +66,7 @@ function M.setup(opts)
     NormalNC = { fg = c.fg, bg = normal_bg },
     NormalFloat = { fg = c.fg, bg = alt_bg },
     FloatBorder = { fg = c.border, bg = alt_bg },
+    FloatTitle = { fg = c.acid_yellow, bg = alt_bg, bold = true },
     EndOfBuffer = { fg = c.muted, bg = normal_bg },
     Cursor = { fg = c.black, bg = c.acid_yellow },
     CursorLine = { bg = highlight_bg },
