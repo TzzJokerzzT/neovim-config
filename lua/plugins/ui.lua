@@ -315,4 +315,23 @@ return {
       })
     end,
   },
+
+  -- Smear Cursor
+  {
+    "sphamba/smear-cursor.nvim",
+    opts = {
+      cursor_color = "#ff6b6b", -- Set the cursor color to a bright red
+      particles_enabled = true, -- Enable particle effects
+      particle_max_num = 100, -- Maximum number of particles
+      stiffness = 0.5, -- Adjust the stiffness of the particle movement
+      trailing_stiffness = 0.2, -- Adjust the stiffness of the trailing effect
+      stiffness_insert_mode = 0.2, -- Adjust the stiffness of the particle movement in insert mode
+      trailing_stiffness_insert_mode = 0.2, -- Adjust the stiffness of the trailing effect in insert mode
+      trailing_exponent = 5, -- Adjust the exponent for the trailing effect
+      damping = 0.6, -- Adjust the damping of the particle movement
+      damping_insert_mode = 0.6, -- Adjust the damping of the particle movement in insert mode
+      gradient_exponent = 0.6, -- Adjust the exponent for the color gradient
+      distance_stop_animation = 0.5, -- Distance at which to stop the animation
+    },
+  },
 }
