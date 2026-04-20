@@ -1,19 +1,37 @@
 return {
   -- Cyberpunk 2077 Custom Theme
+  -- {
+  --   dir = vim.fn.stdpath("config") .. "/lua/cyberpunk_2077",
+  --   name = "cyberpunk_2077",
+  --   lazy = false,
+  --   priority = 1000,
+  --   config = function()
+  --     -- Setup the Cyberpunk 2077 colorscheme
+  --     require("cyberpunk_2077").setup({ transparent = true })
+  --
+  --     -- Setup language-specific highlights
+  --     require("cyberpunk_2077.languages").setup()
+  --
+  --     -- Apply the colorscheme
+  --     vim.cmd("colorscheme cyberpunk_2077")
+  --   end,
+  -- },
+
+  -- Baiken Custom Theme
   {
-    dir = vim.fn.stdpath("config") .. "/lua/cyberpunk_2077",
-    name = "cyberpunk_2077",
+    dir = vim.fn.stdpath("config") .. "/lua/baiken",
+    name = "baiken",
     lazy = false,
     priority = 1000,
     config = function()
       -- Setup the Cyberpunk 2077 colorscheme
-      require("cyberpunk_2077").setup({ transparent = true })
+      require("baiken").setup({ transparent = true })
 
       -- Setup language-specific highlights
-      require("cyberpunk_2077.languages").setup()
+      require("baiken.languages").setup()
 
       -- Apply the colorscheme
-      vim.cmd("colorscheme cyberpunk_2077")
+      vim.cmd("colorscheme baiken")
     end,
   },
 

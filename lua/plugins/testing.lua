@@ -123,8 +123,28 @@ return {
     end,
   },
 
-  -- Diffview
-  { "sindrets/diffview.nvim", dependecies = { "nvim-lua/plenary.nvim" } },
+  -- Rip Substitute
+  {
+    "chrisgrieser/nvim-rip-substitute",
+    cmd = "RipSubstitute",
+    opts = {},
+    keys = {
+      {
+        "<leader>fs",
+        function()
+          require("rip-substitute").sub()
+        end,
+        mode = { "n", "x" },
+        desc = " rip substitute",
+      },
+    },
+  },
+
+  -- Git Diff
+  {
+    "sindrets/diffview.nvim",
+    dependencies = { "nvim-lua/plenary.nvim" },
+  },
 
   -- Tailwind Tools
   {

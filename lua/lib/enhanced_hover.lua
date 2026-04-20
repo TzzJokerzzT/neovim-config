@@ -147,9 +147,9 @@ function M.hover()
             local expanded = value
               .. "\n\n---\n> *"
               .. source
-              .. "*\n```typescript\n"
+              .. "*\ntypescript\n"
               .. table.concat(trimmed, "\n")
-              .. "\n```"
+              .. "\n"
             result.contents = { kind = "markdown", value = expanded }
           end
         end

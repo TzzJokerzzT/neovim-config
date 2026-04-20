@@ -7,10 +7,6 @@
 -- Or remove existing autocmds by their group name (which is prefixed with `lazyvim_` for the defaults)
 -- e.g. vim.api.nvim_del_augroup_by_name("lazyvim_wrap_spell")
 
--- ─── Project Formatter/Linter Detection ────────────────────────────────────────
--- Detects which formatter/linter config files exist in the project root and
--- notifies once per directory so you always know what tools are active.
-
 local notified_dirs = {}
 
 local tool_configs = {

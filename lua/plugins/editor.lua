@@ -1,101 +1,47 @@
 return {
-  -- Goto-preview
+  -- goto-preview
   {
     "rmagatti/goto-preview",
-    event = "LspAttach", -- Load only when LSP attaches
-    config = true, -- Enable default configuration
+    event = "lspattach", -- load only when lsp attaches
+    config = true, -- enable default configuration
     keys = {
       {
         "gzd",
-        "<cmd>lua require('goto-preview').goto_preview_definition()<CR>",
-        noremap = true, -- Do not allow remapping
-        desc = "goto preview definition", -- Description for the keybinding
+        "<cmd>lua require('goto-preview').goto_preview_definition()<cr>",
+        noremap = true, -- do not allow remapping
+        desc = "goto preview definition", -- description for the keybinding
       },
       {
-        "gpD",
-        "<cmd>lua require('goto-preview').goto_preview_declaration()<CR>",
+        "gpd",
+        "<cmd>lua require('goto-preview').goto_preview_declaration()<cr>",
         noremap = true,
         desc = "goto preview declaration",
       },
       {
         "gpi",
-        "<cmd>lua require('goto-preview').goto_preview_implementation()<CR>",
+        "<cmd>lua require('goto-preview').goto_preview_implementation()<cr>",
         noremap = true,
         desc = "goto preview implementation",
       },
       {
         "gpy",
-        "<cmd>lua require('goto-preview').goto_preview_type_definition()<CR>",
+        "<cmd>lua require('goto-preview').goto_preview_type_definition()<cr>",
         noremap = true,
         desc = "goto preview type definition",
       },
       {
         "gpr",
-        "<cmd>lua require('goto-preview').goto_preview_references()<CR>",
+        "<cmd>lua require('goto-preview').goto_preview_references()<cr>",
         noremap = true,
         desc = "goto preview references",
       },
       {
-        "gP",
-        "<cmd>lua require('goto-preview').close_all_win()<CR>",
+        "gp",
+        "<cmd>lua require('goto-preview').close_all_win()<cr>",
         noremap = true,
         desc = "close all preview windows",
       },
     },
-  },
-
-  -- Opencode
-  {
-    "NickvanDyke/opencode.nvim",
-    dependencies = {
-      -- Recommended for `ask()` and `select()`.
-      -- Required for `snacks` provider.
-      ---@module 'snacks' <- Loads `snacks.nvim` types for configuration intellisense.
-      { "folke/snacks.nvim", opts = { input = {}, picker = {}, terminal = {} } },
-    },
-    keys = {
-      -- Recommended/example keymaps.
-      vim.keymap.set({ "n", "x" }, "<leader>ak", function()
-        require("opencode").ask("@this: ", { submit = true })
-      end, { desc = "Ask opencode…" }),
-
-      vim.keymap.set({ "n", "x" }, "<C-x>", function()
-        require("opencode").select()
-      end, { desc = "Execute opencode action…" }),
-
-      vim.keymap.set({ "n", "t" }, "<C-;>", function()
-        require("opencode").toggle()
-      end, { desc = "Toggle opencode" }),
-
-      vim.keymap.set({ "n", "x" }, "go", function()
-        return require("opencode").operator("@this ")
-      end, { desc = "Add range to opencode", expr = true }),
-
-      vim.keymap.set("n", "goo", function()
-        return require("opencode").operator("@this ") .. "_"
-      end, { desc = "Add line to opencode", expr = true }),
-
-      vim.keymap.set("n", "<S-C-u>", function()
-        require("opencode").command("session.half.page.up")
-      end, { desc = "Scroll opencode up" }),
-
-      vim.keymap.set("n", "<S-C-d>", function()
-        require("opencode").command("session.half.page.down")
-      end, { desc = "Scroll opencode down" }),
-
-      -- You may want these if you stick with the opinionated "<C-a>" and "<C-x>" above — otherwise consider "<leader>o…".
-      vim.keymap.set("n", "+", "<C-a>", { desc = "Increment under cursor", noremap = true }),
-      vim.keymap.set("n", "-", "<C-x>", { desc = "Decrement under cursor", noremap = true }),
-    },
-
-    config = function()
-      ---@type opencode.Opts
-      vim.g.opencode_opts = {
-        -- Your configuration, if any — see `lua/opencode/config.lua`, or "goto definition" on the type or field.
-      }
-      -- Required for `opts.events.reload`.
-      vim.o.autoread = true
-    end,
   },
 
   -- Oil
@@ -275,32 +221,12 @@ return {
     end,
   },
 
-  -- Rip Substitute
+  -- Mini Vim
   {
-    "chrisgrieser/nvim-rip-substitute",
-    cmd = "RipSubstitute",
-    opts = {},
-    keys = {
-      {
-        "<leader>fs",
-        function()
-          require("rip-substitute").sub()
-        end,
-        mode = { "n", "x" },
-        desc = " rip substitute",
-      },
-    },
-  },
-
-  -- Volt
-  {
-    "nvzone/volt",
-    lazy = true,
-  },
-
-  -- Minty
-  {
-    "nvzone/minty",
-    cmd = { "Shades", "Huefy" },
+    "nvim-mini/mini.nvim",
+    version = false,
+    config = function()
+      require("mini.surround").setup({})
+    end,
   },
 }

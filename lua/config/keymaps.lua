@@ -63,7 +63,7 @@ vim.api.nvim_set_keymap("n", "<leader>mp", ":MarkdownPreview<CR>", { noremap = t
 -- Window navigation keymaps en cool- retro-term
 vim.keymap.set("n", "<BS>", "<C-w>h", { desc = "Go to Left Window" })
 
--- Enhanced LSP hover (expands TypeScript interfaces/type aliases)
+-- Enhaced LSP Hover (expands Typescript interfaces/type aliases)
 vim.keymap.set("n", "<leader>k", function()
   require("lib.enhanced_hover").hover()
 end, { desc = "Enhanced Hover" })
