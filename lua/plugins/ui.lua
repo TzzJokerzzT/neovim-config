@@ -3,14 +3,67 @@ local timer = nil
 local cached_time = "0m"
 local pomodoro = nil
 local pomodoro_loaded = false
+local wakatime_cli = nil
+
+local function resolve_wakatime_cli()
+  if wakatime_cli ~= nil then
+    return wakatime_cli
+  end
+
+  local wakatime_home = vim.env.WAKATIME_HOME or vim.fn.expand("~")
+  local managed_cli = vim.fs.normalize(wakatime_home .. "/.wakatime/wakatime-cli")
+  local candidates = {
+    managed_cli,
+    managed_cli .. "-darwin-arm64",
+    "/opt/homebrew/bin/wakatime-cli",
+    "/usr/local/bin/wakatime-cli",
+  }
+
+  for _, candidate in ipairs(candidates) do
+    if vim.fn.executable(candidate) == 1 then
+      wakatime_cli = candidate
+      return wakatime_cli
+    end
+  end
+
+  if vim.fn.executable("wakatime-cli") == 1 then
+    wakatime_cli = "wakatime-cli"
+    return wakatime_cli
+  end
+
+  if vim.fn.executable("wakatime") == 1 then
+    wakatime_cli = "wakatime"
+    return wakatime_cli
+  end
+
+  wakatime_cli = false
+  return wakatime_cli
+end
 
 local function update_wakatime()
-  local handle = io.popen("wakatime-cli --today 2>/dev/null")
+  local cli = resolve_wakatime_cli()
+  if not cli then
+    cached_time = "WakaTime N/A"
+    return
+  end
+
+  local handle = io.popen(vim.fn.shellescape(cli) .. " --today 2>/dev/null")
   if handle then
     local result = handle:read("*a")
     handle:close()
     if result and result ~= "" then
-      cached_time = result:gsub("\n", ""):gsub("hours?", "h"):gsub("minutes?", "m")
+      local normalized = result:gsub("\n", "")
+      local hours = normalized:match("(%d+)%s+hrs?") or normalized:match("(%d+)%s+hours?")
+      local minutes = normalized:match("(%d+)%s+mins?") or normalized:match("(%d+)%s+minutes?")
+      if hours and minutes then
+        cached_time = string.format("%sh %sm", hours, minutes)
+      elseif hours then
+        cached_time = string.format("%sh", hours)
+      elseif minutes then
+        cached_time = string.format("%sm", minutes)
+      else
+        cached_time = normalized
+      end
     end
   end
 end
@@ -265,42 +318,6 @@ return {
     end,
   },
 
-  {
-    "sphamba/smear-cursor.nvim",
-    event = "VeryLazy", -- Load after UI is ready
-    cond = vim.g.neovide == nil, -- Disable for Neovide (built-in cursor animation)
-    opts = {
-      -- Smear cursor when switching buffers or windows.
-      smear_between_buffers = true,
-
-      -- Smear cursor when moving within line or to neighbor lines.
-      -- Use `min_horizontal_distance_smear` and `min_vertical_distance_smear` for finer control
-      smear_between_neighbor_lines = true,
-
-      -- Draw the smear in buffer space instead of screen space when scrolling
-      scroll_buffer_space = true,
-
-      -- Set to `true` if your font supports legacy computing symbols (block unicode symbols).
-      -- Smears and particles will look a lot less blocky.
-      legacy_computing_symbols_support = false,
-
-      -- Smear cursor in insert mode.
-      -- See also `vertical_bar_cursor_insert_mode` and `distance_stop_animating_vertical_bar`.
-      smear_insert_mode = true,
-
-      transparent_bg_fallback_color = "#0099cc",
-
-      cursor_color = "#ff4148",
-      particles_enabled = true,
-      particle_max_num = 200,
-      stiffness = 0.5,
-      trailing_stiffness = 0.5,
-      trailing_exponent = 5,
-      damping = 0.6,
-      gradient_exponent = 0,
-    },
-  },
-
   --Triforce
   {
     "gisketch/triforce.nvim",
@@ -355,6 +372,8 @@ return {
   -- Smear Cursor
   {
     "sphamba/smear-cursor.nvim",
+    event = "VeryLazy", -- Load after UI is ready
+    cond = vim.g.neovide == nil, -- Disable for Neovide (built-in cursor animation)
     opts = {
       cursor_color = "#ff6b6b", -- Set the cursor color to a bright red
       particles_enabled = true, -- Enable particle effects
