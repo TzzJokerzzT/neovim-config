@@ -1,6 +1,16 @@
 -- Keymaps are automatically loaded on the VeryLazy event
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
+--
+-- Copy the path of current file to clipboard
+vim.keymap.set("n", "<leader>cp", ":lua PathCopy()<CR>", { desc = "Copy relative path" })
+
+function PathCopy()
+  local path = vim.fn.expand("%") -- Get the full path of the current file
+  vim.fn.setreg("+", path) -- Copy the path to the system clipboard
+  vim.notify("Copied: " .. path, vim.log.levels.INFO) -- Notify the user
+end
+
 vim.api.nvim_set_keymap("n", "<C-s>", ":lua SaveFile()<CR>", { noremap = true, silent = false })
 
 -- Custom save function
@@ -57,8 +67,8 @@ vim.keymap.set("n", "<leader>ds", "ds", { desc = "Remove wrapper" })
 -- Optional: Change wrapper from one delimiter to another
 vim.keymap.set("n", "<leader>cs", "cs", { desc = "Change wrapper" })
 
--- Markdown preview keymap
-vim.api.nvim_set_keymap("n", "<leader>mp", ":MarkdownPreview<CR>", { noremap = true, silent = true })
+-- -- Markdown preview keymap
+-- vim.api.nvim_set_keymap("n", "<leader>mp", ":MarkdownPreview<CR>", { noremap = true, silent = true })
 
 -- Window navigation keymaps en cool- retro-term
 vim.keymap.set("n", "<BS>", "<C-w>h", { desc = "Go to Left Window" })
