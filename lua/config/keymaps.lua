@@ -81,38 +81,4 @@ end, { desc = "Enhanced Hover" })
 -- Tailwind Tools keymaps
 vim.keymap.set("n", "<leader>ts", ":TailwindSort<CR>", { desc = "Sort Tailwind Classes" })
 
--- VSC NEOVIM
--- VSCode Neovim keymaps (only active when running inside VSCode)
-if vim.g.vscode then
-  local vscode = require("vscode")
-
-  -- <leader>p - Toggle file explorer
-  vim.keymap.set("n", "<leader>p", function()
-    vscode.action("workbench.view.explorer")
-  end, { desc = "Toggle file explorer" })
-
-  -- <leader>| - Split editor vertically
-  vim.keymap.set("n", "<leader>|", function()
-    vscode.action("workbench.action.splitEditor")
-  end, { desc = "Split editor vertically" })
-
-  -- <leader><Right> - Focus next editor group
-  vim.keymap.set("n", "<leader><Right>", function()
-    vscode.action("workbench.action.focusNextGroup")
-  end, { desc = "Focus next editor group" })
-
-  -- <leader>q - Close active editor (buffer/tab)
-  vim.keymap.set("n", "<leader>q", function()
-    vscode.action("workbench.action.closeActiveEditor")
-  end, { desc = "Close active editor" })
-
-  -- <leader>k - Show hover information
-  vim.keymap.set("n", "<leader>k", function()
-    vscode.action("editor.action.showHover")
-  end, { desc = "Show hover information" })
-
-  -- <leader>e - Toggle integrated terminal
-  vim.keymap.set("n", "<leader>e", function()
-    vscode.action("workbench.action.terminal.toggleTerminal")
-  end, { desc = "Toggle terminal" })
-end
+----- OBSIDIAN -----
