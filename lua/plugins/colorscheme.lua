@@ -133,8 +133,8 @@ return {
   --         variables = { italic = false, bold = true },
   --       },
   --       -- overrides = {
-  --       --           Normal = { bg = "#123456" },
-  --       --           Macro  = { fg = "#654321" },
+  --       --   Normal = { bg = "#123456" },
+  --       --   Macro = { fg = "#654321" },
   --       -- },
   --     })
   --
