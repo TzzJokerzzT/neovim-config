@@ -141,4 +141,14 @@ return {
   --     vim.cmd("colorscheme sugarpunk") -- or put this in init.lua
   --   end,
   -- },
+
+  -- Wolf359
+  -- {
+  --   "ShiraiEd/Wolf359_nvim_rust_theme",
+  --   lazy = false,
+  --   priority = 1000,
+  --   config = function()
+  --     vim.cmd("colorscheme wolf359")
+  --   end,
+  -- },
 }
