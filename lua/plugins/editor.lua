@@ -431,4 +431,17 @@ return {
   -- Diffview
   { "sindrets/diffview.nvim", dependecies = { "nvim-lua/plenary.nvim" } },
 
+  -- Tailwind Tools
+  {
+    "luckasRanarison/tailwind-tools.nvim",
+    name = "tailwind-tools",
+    build = ":UpdateRemotePlugins",
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter",
+      "nvim-telescope/telescope.nvim", -- optional
+      "neovim/nvim-lspconfig", -- optional
+    },
+    opts = {}, -- your configuration
+  },
+
 }
