@@ -18,22 +18,22 @@ return {
   -- },
 
   -- Baiken Custom Theme
-  {
-    dir = vim.fn.stdpath("config") .. "/lua/baiken",
-    name = "baiken",
-    lazy = false,
-    priority = 1000,
-    config = function()
-      -- Setup the Cyberpunk 2077 colorscheme
-      require("baiken").setup({ transparent = true })
-
-      -- Setup language-specific highlights
-      require("baiken.languages").setup()
-
-      -- Apply the colorscheme
-      vim.cmd("colorscheme baiken")
-    end,
-  },
+  -- {
+  --   dir = vim.fn.stdpath("config") .. "/lua/baiken",
+  --   name = "baiken",
+  --   lazy = false,
+  --   priority = 1000,
+  --   config = function()
+  --     -- Setup the Cyberpunk 2077 colorscheme
+  --     require("baiken").setup({ transparent = true })
+  --
+  --     -- Setup language-specific highlights
+  --     require("baiken.languages").setup()
+  --
+  --     -- Apply the colorscheme
+  --     vim.cmd("colorscheme baiken")
+  --   end,
+  -- },
 
   -- C. Viper Custom Theme
   -- {
