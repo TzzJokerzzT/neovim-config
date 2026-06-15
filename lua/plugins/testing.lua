@@ -61,7 +61,19 @@ return {
             return require("obsidian").util.toggle_checkbox()
           end, { buffer = note.bufnr, desc = "Toggle checkbox" })
 
-  { "sindrets/diffview.nvim", dependecies = { "nvim-lua/plenary.nvim" } },
+          vim.keymap.set("n", "<cr>", function()
+            return require("obsidian").util.smart_action()
+          end, { buffer = note.bufnr, expr = true, desc = "Obsidian smart action" })
+        end,
+      },
+      templates = {
+        subdir = "templates",
+        date_format = "%Y-%m-%d-%a",
+        time_format = "%H-%M",
+        tags = "",
+      },
+    },
+  },
 
   -- Tailwind Tools
   {
