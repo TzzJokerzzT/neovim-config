@@ -10,66 +10,57 @@ return {
     end,
   },
 
-  -- Summon
+  -- Obsidian
   {
-    "salkhalil/summon.nvim",
-    opts = {},
-    config = function()
-      require("summon").setup({
-        -- Global defaults (apply to all commands unless overridden)
-        width = 0.85,
-        height = 0.85,
-        border = "rounded",
-        close_keymap = "<Esc><Esc>",
-        highlights = {
-          float = { bg = nil },
-          border = { fg = "#0099cc", bg = nil },
-          title = { fg = "#fdfcfe", bg = "#0099cc", bold = true },
-        },
-        -- Colors accept hex strings ("#282828") or integers (0x282828)
-        terminal_passthrough_keys = { "<C-o>", "<C-i>" }, -- keys passed to terminal apps
-
-        -- Named commands
-        commands = {
-          terminal = {
-            type = "terminal", -- or "file"
-            command = "zellij", -- command to run (for "terminal" type) or file to open (for "file" type)
-            title = " Terminal   ",
-            keymap = "<C-e>",
-          },
-          opencode = {
-            type = "terminal", -- or "file"
-            command = "opencode",
-            title = " Opencode   ",
-            keymap = "<leader>o",
-          },
-          lazygit = {
-            type = "terminal",
-            command = "lazygit",
-            title = " LazyGit  ",
-            keymap = "<leader>ge",
-            height = 0.9, -- override global default
-            -- border_color = "#ff4444", -- custom border + title badge color
-            border = "rounded",
-            highlights = {
-              border = { fg = "#ff4444", bg = nil },
-              title = { fg = "#fdfcfe", bg = "#ff4444", bold = true },
-            },
-            terminal_passthrough_keys = {}, -- disable passthrough for lazygit
-          },
-          todos = {
-            type = "file",
-            command = "~/Documents/todos.md",
-            title = " TODOs ",
-            keymap = "<leader>t",
-            filetype = "markdown", -- optional: override auto-detected filetype
-          },
-        },
-      })
+    "obsidian-nvim/obsidian.nvim",
+    version = "*", -- use latest release, remove to use latest commit
+    ---@module 'obsidian'
+    ---@type obsidian.config
+    enabled = function()
+      return not vim.g.disable_obsidian
     end,
-  },
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+    },
+    opts = {
+      legacy_commands = false, -- this will be removed in 4.0.0
+      workspaces = {
+        {
+          name = "personal",
+          path = "~/Documents/Obsidian/Personal",
+        },
+        {
+          name = "work",
+          path = "~/Documents/Obsidian/Work",
+        },
+        {
+          name = "study",
+          path = "~/Documents/Obsidian/Study",
+        },
+      },
+      picker = {
+        name = "snacks.picker",
+      },
+      sync = {
+        enabled = false,
+      },
+      -- Optional, define your own callbacks to further customize behavior.
+      callbacks = {
+        -- Runs anytime you enter the buffer for a note.
+        -- NOTE: Breaking change in obsidian.nvim - callback now receives only (note), not (client, note)
+        enter_note = function(note)
+          if not note then
+            return
+          end
+          -- Setup keymaps for obsidian notes
+          vim.keymap.set("n", "gf", function()
+            return require("obsidian").util.gf_passthrough()
+          end, { buffer = note.bufnr, expr = true, desc = "Obsidian follow link" })
 
-  -- Diffview
+          vim.keymap.set("n", "<leader>ch", function()
+            return require("obsidian").util.toggle_checkbox()
+          end, { buffer = note.bufnr, desc = "Toggle checkbox" })
+
   { "sindrets/diffview.nvim", dependecies = { "nvim-lua/plenary.nvim" } },
 
   -- Tailwind Tools
