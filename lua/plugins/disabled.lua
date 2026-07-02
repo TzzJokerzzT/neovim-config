@@ -1,3 +1,5 @@
+-- local mason_bin = vim.fn.stdpath("data") .. "/mason/bin"
+
 return {
   -- Disabled bufferline
   {
@@ -14,24 +16,112 @@ return {
   -- 5.x), causing TSServer to crash with SIGABRT. Using the vtsls-bundled TS
   -- avoids the mismatch and works across any project (Vue, React, Angular, etc.)
   -- without per-project configuration.
-  {
-    "neovim/nvim-lspconfig",
-    opts = {
-      servers = {
-        angularls = { enabled = false },
-        vtsls = {
-          settings = {
-            vtsls = {
-              autoUseWorkspaceTsdk = false,
-            },
-            typescript = {
-              tsserver = {
-                maxTsServerMemory = 8192,
-              },
-            },
-          },
-        },
-      },
-    },
-  },
+  -- {
+  --   "neovim/nvim-lspconfig",
+  --   config = function()
+  --     require("lspconfig").eslint.setup({
+  --       flags = {
+  --         allow_incremental_sync = false,
+  --         debounce_text_changes = 1000,
+  --       },
+  --     })
+  --   end,
+  -- },
+
+  -- -- lua/plugins/lsp.lua
+  -- {
+  --   "neovim/nvim-lspconfig",
+  --   opts = {
+  --     servers = {
+  --       eslint = {
+  --         settings = {
+  --           -- Para proyectos con flat config (eslint.config.js)
+  --           experimental = {
+  --             useFlatConfig = true,
+  --           },
+  --           -- Que no falle si no hay config, solo muestre warning
+  --           problems = {
+  --             shortenToSingleLine = false,
+  --           },
+  --         },
+  --       },
+  --     },
+  --   },
+  -- },
+
+  -- ESLint LSP overrides para LazyVim
+  -- Previene que ESLint freeze Neovim en proyectos Node/Express
+  -- {
+  --   "neovim/nvim-lspconfig",
+  --   opts = {
+  --     servers = {
+  --       eslint = {
+  --         -- Usar eslint_d (daemon, mucho más rápido que eslint puro)
+  --         cmd = { mason_bin .. "/eslint_d", "--stdio" },
+  --         -- Solo ejecutar ESLint al guardar, no en cada keystroke
+  --         run = "onSave",
+  --         -- Limitar a archivos JS/TS — ESLint en otros filetypes no tiene sentido
+  --         filetypes = {
+  --           "javascript",
+  --           "javascriptreact",
+  --           "typescript",
+  --           "typescriptreact",
+  --           "vue",
+  --         },
+  --         -- root_dir STRICTO: NO subir más allá de donde encuentre un config de ESLint
+  --         -- ni más allá del primer package.json. Esto evita que escale hasta ~/
+  --         root_dir = require("lspconfig.util").root_pattern(
+  --           "eslint.config.js",
+  --           "eslint.config.mjs",
+  --           "eslint.config.cjs",
+  --           "eslint.config.ts",
+  --           ".eslintrc.js",
+  --           ".eslintrc.cjs",
+  --           ".eslintrc.yaml",
+  --           ".eslintrc.yml",
+  --           ".eslintrc.json",
+  --           ".eslintrc",
+  --           "package.json"
+  --         ),
+  --         -- No intentar usar una sola root_dir para monorepos: auto-detecta
+  --         -- cada sub-proyecto con su propio config
+  --         single_file_support = false,
+  --         settings = {
+  --           -- Solo validar archivos abiertos, no todo el workspace
+  --           validate = "on",
+  --           -- Flat config (ESLint >=9 es obligatorio flat config)
+  --           experimental = {
+  --             useFlatConfig = true,
+  --           },
+  --           -- Detecta automáticamente la working directory por archivo
+  --           workingDirectories = { mode = "auto" },
+  --           -- Usar npm como package manager
+  --           packageManager = "npm",
+  --           -- Mostrar documentación de reglas en code actions
+  --           codeAction = {
+  --             disableRuleComment = {
+  --               enable = true,
+  --               location = "separateLine",
+  --             },
+  --             showDocumentation = {
+  --               enable = true,
+  --             },
+  --           },
+  --           -- No procesar archivos ignorados
+  --           onIgnoredFiles = "off",
+  --         },
+  --         -- Cada vez que se detecta un nuevo root_dir, configuramos
+  --         -- el workspaceFolder para que ESLint no se salga de ahí
+  --         on_new_config = function(config, new_root_dir)
+  --           if new_root_dir then
+  --             config.settings.workspaceFolder = {
+  --               uri = vim.uri_from_fname(new_root_dir),
+  --               name = vim.fn.fnamemodify(new_root_dir, ":t"),
+  --             }
+  --           end
+  --         end,
+  --       },
+  --     },
+  --   },
+  -- },
 }
