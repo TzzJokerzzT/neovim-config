@@ -97,3 +97,35 @@ vim.api.nvim_create_autocmd({ "DirChanged", "VimEnter" }, {
 
 -- Run immediately since this file loads on VeryLazy (after VimEnter)
 vim.schedule(detect_project_tools)
+
+-- ─── Macro Recording Notifications ──────────────────────────────────────
+-- Shows a notification when macro recording starts/stops, including
+-- the register being used.
+
+local macro_recording_group = vim.api.nvim_create_augroup("macro_recording_notify", { clear = true })
+
+vim.api.nvim_create_autocmd("RecordingEnter", {
+  group = macro_recording_group,
+  callback = function()
+    local reg = vim.fn.reg_recording()
+    vim.notify("Recording macro @" .. reg, vim.log.levels.INFO, {
+      title = "󰑋 Macro",
+      icon = "⏺️",
+    })
+  end,
+  desc = "Notify when macro recording starts",
+})
+
+vim.api.nvim_create_autocmd("RecordingLeave", {
+  group = macro_recording_group,
+  callback = function()
+    local reg = vim.fn.reg_recording()
+    if reg ~= "" then
+      vim.notify("Macro saved to register @" .. reg, vim.log.levels.INFO, {
+        title = "󰑋 Macro",
+        icon = "⏹️",
+      })
+    end
+  end,
+  desc = "Notify when macro recording stops",
+})
